@@ -1,0 +1,1161 @@
+{
+  "prompts": [
+    {
+      "title": "AI Code Review Assistant",
+      "content": "You are an expert code reviewer. Please review the following code for:\n\n1. **Code Quality**: Check for clean, readable, and maintainable code\n2. **Performance**: Identify potential performance bottlenecks and optimization opportunities\n3. **Security**: Look for security vulnerabilities and best practices\n4. **Best Practices**: Ensure adherence to language-specific best practices\n5. **Documentation**: Verify adequate comments and documentation\n\nFor each issue found, provide:\n- Severity level (Critical, High, Medium, Low)\n- Specific line numbers or sections\n- Clear explanation of the issue\n- Suggested fix or improvement\n- Code example if applicable\n\nPlease be constructive and educational in your feedback.",
+      "description": "Get comprehensive code reviews with AI assistance covering quality, performance, security, and best practices.",
+      "category": "development",
+      "tags": [
+        "code-review",
+        "quality",
+        "security",
+        "performance",
+        "best-practices"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "API Documentation Generator",
+      "content": "Generate comprehensive API documentation for the following endpoint:\n\n**Endpoint**: [INSERT_ENDPOINT]\n**Method**: [INSERT_METHOD]\n**Description**: [INSERT_DESCRIPTION]\n\nPlease provide:\n\n1. **Overview**: Clear description of what the endpoint does\n2. **Parameters**: \n   - Request parameters (query, path, body)\n   - Data types and validation rules\n   - Required vs optional parameters\n   - Example values\n3. **Request Examples**: \n   - cURL command\n   - JavaScript fetch example\n   - Python requests example\n4. **Response Format**:\n   - Success response structure\n   - Error response structure\n   - HTTP status codes\n5. **Error Handling**: Common error scenarios and solutions\n6. **Rate Limiting**: Any rate limiting information\n7. **Authentication**: Required authentication method\n\nFormat the documentation in clear, professional markdown.",
+      "description": "Generate professional API documentation with examples, parameters, and error handling.",
+      "category": "development",
+      "tags": [
+        "api",
+        "documentation",
+        "rest",
+        "examples",
+        "swagger"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Database Query Optimizer",
+      "content": "You are a database performance expert. Analyze the following SQL query and provide optimization recommendations:\n\n**Query**:\n[INSERT_SQL_QUERY]\n\n**Context**:\n- Database: [INSERT_DB_TYPE]\n- Table sizes: [INSERT_TABLE_INFO]\n- Expected result set: [INSERT_EXPECTED_SIZE]\n\nPlease analyze and provide:\n\n1. **Query Analysis**:\n   - Execution plan breakdown\n   - Identified bottlenecks\n   - Resource usage estimation\n\n2. **Optimization Recommendations**:\n   - Index suggestions\n   - Query structure improvements\n   - Join optimization\n   - Subquery alternatives\n\n3. **Performance Improvements**:\n   - Estimated performance gains\n   - Alternative query approaches\n   - Caching strategies\n\n4. **Best Practices**:\n   - General optimization tips\n   - Monitoring recommendations\n   - Maintenance suggestions\n\nProvide specific, actionable recommendations with code examples.",
+      "description": "Optimize SQL queries for better performance with expert analysis and recommendations.",
+      "category": "development",
+      "tags": [
+        "sql",
+        "database",
+        "optimization",
+        "performance",
+        "indexing"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Creative Writing Story Generator",
+      "content": "You are a creative writing assistant. Help me develop a compelling story with the following elements:\n\n**Genre**: [INSERT_GENRE]\n**Setting**: [INSERT_SETTING]\n**Main Character**: [INSERT_CHARACTER_DESCRIPTION]\n**Conflict**: [INSERT_CONFLICT_OR_CHALLENGE]\n\nPlease create:\n\n1. **Story Structure**:\n   - Three-act structure outline\n   - Key plot points\n   - Character arc development\n   - Conflict resolution\n\n2. **Character Development**:\n   - Main character backstory\n   - Supporting characters\n   - Character motivations\n   - Character relationships\n\n3. **World Building**:\n   - Setting details\n   - Rules and constraints\n   - Atmosphere and tone\n   - Sensory descriptions\n\n4. **Writing Style**:\n   - Narrative voice suggestions\n   - Dialogue style\n   - Pacing recommendations\n   - Literary devices\n\nProvide a detailed outline and the first 500 words of the story.",
+      "description": "Generate compelling creative stories with detailed character development and world building.",
+      "category": "creative",
+      "tags": [
+        "writing",
+        "storytelling",
+        "fiction",
+        "characters",
+        "plot"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Brand Voice and Tone Guide",
+      "content": "You are a brand strategist and copywriter. Help develop a comprehensive brand voice and tone guide for:\n\n**Company**: [INSERT_COMPANY_NAME]\n**Industry**: [INSERT_INDUSTRY]\n**Target Audience**: [INSERT_AUDIENCE_DESCRIPTION]\n**Brand Values**: [INSERT_BRAND_VALUES]\n\nPlease create:\n\n1. **Brand Voice Definition**:\n   - Core personality traits\n   - Voice characteristics\n   - What makes the brand unique\n   - Voice do's and don'ts\n\n2. **Tone Guidelines**:\n   - Formal vs casual spectrum\n   - Emotional tone\n   - Communication style\n   - Context-specific adaptations\n\n3. **Writing Guidelines**:\n   - Word choice preferences\n   - Sentence structure\n   - Punctuation style\n   - Technical terminology\n\n4. **Examples**:\n   - Email subject lines\n   - Social media posts\n   - Website copy\n   - Customer service responses\n\n5. **Implementation**:\n   - Team training recommendations\n   - Content review process\n   - Brand voice checklist\n\nProvide practical, actionable guidelines with clear examples.",
+      "description": "Develop comprehensive brand voice and tone guidelines for consistent communication.",
+      "category": "creative",
+      "tags": [
+        "branding",
+        "copywriting",
+        "voice",
+        "tone",
+        "marketing"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Business Plan Executive Summary",
+      "content": "You are a business consultant. Help create a compelling executive summary for a business plan:\n\n**Business Name**: [INSERT_BUSINESS_NAME]\n**Industry**: [INSERT_INDUSTRY]\n**Business Model**: [INSERT_BUSINESS_MODEL]\n**Target Market**: [INSERT_TARGET_MARKET]\n**Key Differentiators**: [INSERT_DIFFERENTIATORS]\n\nPlease create an executive summary that includes:\n\n1. **Business Overview**:\n   - Mission statement\n   - Vision statement\n   - Core values\n   - Business description\n\n2. **Market Opportunity**:\n   - Market size and growth\n   - Target customer segments\n   - Market trends\n   - Competitive landscape\n\n3. **Business Model**:\n   - Revenue streams\n   - Cost structure\n   - Key partnerships\n   - Value proposition\n\n4. **Financial Projections**:\n   - Revenue projections (3-5 years)\n   - Key financial metrics\n   - Funding requirements\n   - Break-even analysis\n\n5. **Team and Execution**:\n   - Key team members\n   - Implementation timeline\n   - Milestones and goals\n   - Risk mitigation\n\nKeep it concise (1-2 pages) but comprehensive.",
+      "description": "Create professional business plan executive summaries with market analysis and financial projections.",
+      "category": "business",
+      "tags": [
+        "business-plan",
+        "executive-summary",
+        "strategy",
+        "finance",
+        "market-analysis"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Customer Interview Guide",
+      "content": "You are a UX researcher and product manager. Create a comprehensive customer interview guide for:\n\n**Product/Service**: [INSERT_PRODUCT_DESCRIPTION]\n**Research Goals**: [INSERT_RESEARCH_OBJECTIVES]\n**Target Participants**: [INSERT_PARTICIPANT_CRITERIA]\n**Interview Duration**: [INSERT_DURATION]\n\nPlease create:\n\n1. **Pre-Interview Preparation**:\n   - Participant screening questions\n   - Interview objectives\n   - Success metrics\n   - Logistics checklist\n\n2. **Interview Structure**:\n   - Opening and rapport building\n   - Background questions\n   - Core research questions\n   - Closing and next steps\n\n3. **Question Categories**:\n   - Demographics and background\n   - Current behavior and habits\n   - Pain points and challenges\n   - Needs and motivations\n   - Product feedback (if applicable)\n\n4. **Interview Techniques**:\n   - Active listening strategies\n   - Follow-up question examples\n   - Probing techniques\n   - Handling difficult participants\n\n5. **Post-Interview**:\n   - Note-taking template\n   - Analysis framework\n   - Key insights extraction\n   - Action item identification\n\nProvide specific questions and conversation flow.",
+      "description": "Conduct effective customer interviews with structured questions and analysis frameworks.",
+      "category": "business",
+      "tags": [
+        "customer-research",
+        "interviews",
+        "ux-research",
+        "product-management",
+        "user-feedback"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Lesson Plan Generator",
+      "content": "You are an educational content creator. Design a comprehensive lesson plan for:\n\n**Subject**: [INSERT_SUBJECT]\n**Grade Level**: [INSERT_GRADE_LEVEL]\n**Topic**: [INSERT_TOPIC]\n**Duration**: [INSERT_LESSON_DURATION]\n**Learning Objectives**: [INSERT_OBJECTIVES]\n\nPlease create:\n\n1. **Lesson Overview**:\n   - Learning objectives (SMART goals)\n   - Prerequisites\n   - Materials needed\n   - Assessment criteria\n\n2. **Lesson Structure**:\n   - Warm-up activity (5-10 minutes)\n   - Introduction (10-15 minutes)\n   - Main content delivery (20-30 minutes)\n   - Practice/Application (15-20 minutes)\n   - Wrap-up and reflection (5-10 minutes)\n\n3. **Teaching Methods**:\n   - Instructional strategies\n   - Student engagement techniques\n   - Differentiation approaches\n   - Technology integration\n\n4. **Assessment**:\n   - Formative assessment methods\n   - Summative assessment options\n   - Rubric or grading criteria\n   - Student self-assessment\n\n5. **Resources and Materials**:\n   - Required materials list\n   - Supplementary resources\n   - Technology tools\n   - Extension activities\n\nInclude specific activities and timing for each section.",
+      "description": "Create comprehensive lesson plans with clear objectives, activities, and assessment methods.",
+      "category": "education",
+      "tags": [
+        "lesson-planning",
+        "education",
+        "teaching",
+        "curriculum",
+        "assessment"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Study Guide Creator",
+      "content": "You are an academic tutor. Create a comprehensive study guide for:\n\n**Subject**: [INSERT_SUBJECT]\n**Topic/Chapter**: [INSERT_TOPIC]\n**Exam Type**: [INSERT_EXAM_TYPE]\n**Study Time Available**: [INSERT_TIME_FRAME]\n**Student Level**: [INSERT_ACADEMIC_LEVEL]\n\nPlease create:\n\n1. **Study Overview**:\n   - Key concepts and themes\n   - Learning objectives\n   - Study timeline\n   - Success metrics\n\n2. **Content Organization**:\n   - Main topics breakdown\n   - Concept relationships\n   - Priority levels\n   - Difficulty progression\n\n3. **Study Methods**:\n   - Active recall techniques\n   - Spaced repetition schedule\n   - Note-taking strategies\n   - Memory aids and mnemonics\n\n4. **Practice Materials**:\n   - Sample questions\n   - Practice problems\n   - Self-assessment quizzes\n   - Mock exams\n\n5. **Study Schedule**:\n   - Daily study plan\n   - Review sessions\n   - Break recommendations\n   - Final preparation\n\n6. **Resources**:\n   - Recommended readings\n   - Online resources\n   - Study groups\n   - Tutoring options\n\nProvide specific study techniques and practice materials.",
+      "description": "Create personalized study guides with effective learning strategies and practice materials.",
+      "category": "education",
+      "tags": [
+        "study-guide",
+        "academic",
+        "learning",
+        "exam-prep",
+        "study-strategies"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Research Proposal Writer",
+      "content": "You are a research methodology expert. Help write a comprehensive research proposal for:\n\n**Research Topic**: [INSERT_TOPIC]\n**Research Type**: [INSERT_TYPE - Qualitative/Quantitative/Mixed]\n**Field of Study**: [INSERT_FIELD]\n**Timeline**: [INSERT_TIMELINE]\n**Budget**: [INSERT_BUDGET_RANGE]\n\nPlease create:\n\n1. **Introduction**:\n   - Problem statement\n   - Research questions\n   - Hypotheses (if applicable)\n   - Significance of study\n\n2. **Literature Review**:\n   - Key theoretical frameworks\n   - Previous research findings\n   - Research gaps\n   - Theoretical contributions\n\n3. **Methodology**:\n   - Research design\n   - Data collection methods\n   - Sampling strategy\n   - Data analysis plan\n\n4. **Timeline and Resources**:\n   - Detailed project timeline\n   - Required resources\n   - Budget breakdown\n   - Risk mitigation\n\n5. **Expected Outcomes**:\n   - Anticipated results\n   - Potential implications\n   - Dissemination plan\n   - Future research directions\n\n6. **Ethics and Compliance**:\n   - Ethical considerations\n   - IRB requirements\n   - Data protection\n   - Informed consent\n\nFollow academic writing standards and include proper citations.",
+      "description": "Write comprehensive research proposals with methodology, timeline, and ethical considerations.",
+      "category": "research",
+      "tags": [
+        "research-proposal",
+        "methodology",
+        "academic-writing",
+        "data-collection",
+        "ethics"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Data Analysis Framework",
+      "content": "You are a data science consultant. Create a comprehensive data analysis framework for:\n\n**Dataset Type**: [INSERT_DATASET_TYPE]\n**Analysis Goals**: [INSERT_ANALYSIS_OBJECTIVES]\n**Data Size**: [INSERT_DATA_SIZE]\n**Tools Available**: [INSERT_TOOLS]\n\nPlease provide:\n\n1. **Data Understanding**:\n   - Data exploration checklist\n   - Data quality assessment\n   - Missing data analysis\n   - Outlier detection methods\n\n2. **Data Preparation**:\n   - Data cleaning procedures\n   - Feature engineering strategies\n   - Data transformation steps\n   - Validation techniques\n\n3. **Analysis Methods**:\n   - Descriptive statistics\n   - Exploratory data analysis\n   - Statistical tests\n   - Machine learning approaches\n\n4. **Visualization Strategy**:\n   - Chart type recommendations\n   - Dashboard design\n   - Storytelling approach\n   - Interactive elements\n\n5. **Interpretation Framework**:\n   - Results validation\n   - Statistical significance\n   - Practical significance\n   - Business implications\n\n6. **Reporting Structure**:\n   - Executive summary format\n   - Technical documentation\n   - Visualization guidelines\n   - Actionable insights\n\nInclude specific code examples and best practices.",
+      "description": "Create systematic data analysis frameworks with clear methodology and reporting structure.",
+      "category": "research",
+      "tags": [
+        "data-analysis",
+        "statistics",
+        "visualization",
+        "machine-learning",
+        "research-methods"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "System Architecture Designer",
+      "content": "You are a senior software architect. Design a comprehensive system architecture for:\n\n**System Type**: [INSERT_SYSTEM_TYPE]\n**Scale Requirements**: [INSERT_SCALE_REQUIREMENTS]\n**Performance Needs**: [INSERT_PERFORMANCE_REQUIREMENTS]\n**Technology Stack**: [INSERT_TECH_STACK]\n\nPlease design:\n\n1. **High-Level Architecture**:\n   - System components overview\n   - Data flow diagrams\n   - Integration points\n   - Deployment architecture\n\n2. **Technical Specifications**:\n   - Database design\n   - API specifications\n   - Security architecture\n   - Performance optimization\n\n3. **Scalability Design**:\n   - Horizontal scaling strategy\n   - Load balancing approach\n   - Caching mechanisms\n   - Database sharding\n\n4. **Security Framework**:\n   - Authentication and authorization\n   - Data encryption\n   - Network security\n   - Compliance requirements\n\n5. **Monitoring and Operations**:\n   - Logging strategy\n   - Monitoring systems\n   - Alerting mechanisms\n   - Disaster recovery\n\n6. **Implementation Plan**:\n   - Development phases\n   - Technology choices\n   - Team requirements\n   - Risk assessment\n\nProvide detailed diagrams and technical specifications.",
+      "description": "Design comprehensive system architectures with scalability, security, and performance considerations.",
+      "category": "technical",
+      "tags": [
+        "architecture",
+        "system-design",
+        "scalability",
+        "security",
+        "performance"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "DevOps Pipeline Builder",
+      "content": "You are a DevOps engineer. Create a comprehensive CI/CD pipeline for:\n\n**Project Type**: [INSERT_PROJECT_TYPE]\n**Deployment Target**: [INSERT_DEPLOYMENT_TARGET]\n**Team Size**: [INSERT_TEAM_SIZE]\n**Release Frequency**: [INSERT_RELEASE_FREQUENCY]\n\nPlease design:\n\n1. **Pipeline Overview**:\n   - Pipeline stages\n   - Trigger conditions\n   - Environment strategy\n   - Approval gates\n\n2. **Source Control Integration**:\n   - Branching strategy\n   - Code review process\n   - Merge policies\n   - Version control\n\n3. **Build and Test**:\n   - Build automation\n   - Test execution\n   - Code quality checks\n   - Security scanning\n\n4. **Deployment Strategy**:\n   - Environment promotion\n   - Deployment methods\n   - Rollback procedures\n   - Blue-green deployment\n\n5. **Monitoring and Feedback**:\n   - Build notifications\n   - Deployment monitoring\n   - Performance tracking\n   - Error reporting\n\n6. **Tools and Technologies**:\n   - CI/CD platform\n   - Container orchestration\n   - Infrastructure as code\n   - Monitoring tools\n\nInclude specific configuration examples and best practices.",
+      "description": "Build robust CI/CD pipelines with automated testing, deployment, and monitoring.",
+      "category": "technical",
+      "tags": [
+        "devops",
+        "ci-cd",
+        "automation",
+        "deployment",
+        "monitoring"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "Git Workflow Optimizer",
+      "content": "Analyze and optimize Git workflows for better collaboration and code quality...",
+      "description": "Optimize Git workflows for team collaboration and code quality.",
+      "category": "development",
+      "tags": [
+        "git",
+        "workflow",
+        "collaboration",
+        "version-control"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Docker Container Best Practices",
+      "content": "Create optimized Docker containers with security and performance best practices...",
+      "description": "Build secure and efficient Docker containers with best practices.",
+      "category": "development",
+      "tags": [
+        "docker",
+        "containers",
+        "security",
+        "optimization"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Social Media Content Calendar",
+      "content": "Plan and create engaging social media content with strategic posting schedules...",
+      "description": "Create strategic social media content calendars for maximum engagement.",
+      "category": "creative",
+      "tags": [
+        "social-media",
+        "content-planning",
+        "marketing",
+        "engagement"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Video Script Writer",
+      "content": "Write compelling video scripts for various formats and platforms...",
+      "description": "Create engaging video scripts for marketing, education, and entertainment.",
+      "category": "creative",
+      "tags": [
+        "video",
+        "scriptwriting",
+        "storytelling",
+        "marketing"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Market Research Analyst",
+      "content": "Conduct comprehensive market research with competitive analysis and trends...",
+      "description": "Perform thorough market research with competitive intelligence.",
+      "category": "business",
+      "tags": [
+        "market-research",
+        "competitive-analysis",
+        "trends",
+        "strategy"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Financial Model Builder",
+      "content": "Create detailed financial models with projections and scenario analysis...",
+      "description": "Build comprehensive financial models for business planning.",
+      "category": "business",
+      "tags": [
+        "financial-modeling",
+        "projections",
+        "analysis",
+        "planning"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Quiz and Assessment Creator",
+      "content": "Design effective quizzes and assessments with various question types...",
+      "description": "Create comprehensive quizzes and assessments for learning evaluation.",
+      "category": "education",
+      "tags": [
+        "assessment",
+        "quiz",
+        "evaluation",
+        "learning"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Curriculum Designer",
+      "content": "Design comprehensive curricula with learning objectives and progression...",
+      "description": "Create structured curricula with clear learning pathways.",
+      "category": "education",
+      "tags": [
+        "curriculum",
+        "design",
+        "learning-objectives",
+        "progression"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Survey Design Expert",
+      "content": "Create effective surveys with proper question design and sampling...",
+      "description": "Design comprehensive surveys with statistical validity.",
+      "category": "research",
+      "tags": [
+        "survey",
+        "questionnaire",
+        "sampling",
+        "statistics"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Academic Paper Reviewer",
+      "content": "Provide comprehensive academic paper reviews with constructive feedback...",
+      "description": "Review academic papers with detailed feedback and suggestions.",
+      "category": "research",
+      "tags": [
+        "academic-review",
+        "peer-review",
+        "feedback",
+        "scholarship"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Security Audit Checklist",
+      "content": "Perform comprehensive security audits with detailed vulnerability assessment...",
+      "description": "Conduct thorough security audits with vulnerability analysis.",
+      "category": "technical",
+      "tags": [
+        "security",
+        "audit",
+        "vulnerability",
+        "assessment"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "Performance Testing Guide",
+      "content": "Design and execute comprehensive performance testing strategies...",
+      "description": "Create effective performance testing plans and execution strategies.",
+      "category": "technical",
+      "tags": [
+        "performance",
+        "testing",
+        "optimization",
+        "monitoring"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Research - Template 1",
+      "content": "You are an expert AI assistant specializing in research. Help users with their research-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for research tasks with intermediate level complexity.",
+      "category": "research",
+      "tags": [
+        "research",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 2",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with beginner level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 3",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with beginner level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 4",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with intermediate level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 5",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with beginner level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 6",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with intermediate level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 7",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with beginner level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 8",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Development - Template 9",
+      "content": "You are an expert AI assistant specializing in development. Help users with their development-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for development tasks with intermediate level complexity.",
+      "category": "development",
+      "tags": [
+        "development",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 10",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with intermediate level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 11",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with intermediate level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 12",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with beginner level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 13",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Research - Template 14",
+      "content": "You are an expert AI assistant specializing in research. Help users with their research-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for research tasks with intermediate level complexity.",
+      "category": "research",
+      "tags": [
+        "research",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Development - Template 15",
+      "content": "You are an expert AI assistant specializing in development. Help users with their development-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for development tasks with intermediate level complexity.",
+      "category": "development",
+      "tags": [
+        "development",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 16",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 17",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with advanced level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 18",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with intermediate level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 19",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with advanced level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 20",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with beginner level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 21",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with advanced level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 22",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with beginner level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 23",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with advanced level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 24",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with advanced level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 25",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with beginner level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 26",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Research - Template 27",
+      "content": "You are an expert AI assistant specializing in research. Help users with their research-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for research tasks with intermediate level complexity.",
+      "category": "research",
+      "tags": [
+        "research",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 28",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 29",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Development - Template 30",
+      "content": "You are an expert AI assistant specializing in development. Help users with their development-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for development tasks with beginner level complexity.",
+      "category": "development",
+      "tags": [
+        "development",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 31",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with intermediate level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 32",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with beginner level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 33",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with intermediate level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 34",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with intermediate level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 35",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with intermediate level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 36",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with intermediate level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 37",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with beginner level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 38",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with beginner level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Development - Template 39",
+      "content": "You are an expert AI assistant specializing in development. Help users with their development-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for development tasks with intermediate level complexity.",
+      "category": "development",
+      "tags": [
+        "development",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Research - Template 40",
+      "content": "You are an expert AI assistant specializing in research. Help users with their research-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for research tasks with intermediate level complexity.",
+      "category": "research",
+      "tags": [
+        "research",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Research - Template 41",
+      "content": "You are an expert AI assistant specializing in research. Help users with their research-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for research tasks with intermediate level complexity.",
+      "category": "research",
+      "tags": [
+        "research",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 42",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with advanced level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 43",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with beginner level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 44",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with advanced level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Development - Template 45",
+      "content": "You are an expert AI assistant specializing in development. Help users with their development-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for development tasks with intermediate level complexity.",
+      "category": "development",
+      "tags": [
+        "development",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Technical - Template 46",
+      "content": "You are an expert AI assistant specializing in technical. Help users with their technical-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for technical tasks with beginner level complexity.",
+      "category": "technical",
+      "tags": [
+        "technical",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 47",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with advanced level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "advanced"
+      ],
+      "difficulty_level": "advanced",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Business - Template 48",
+      "content": "You are an expert AI assistant specializing in business. Help users with their business-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for business tasks with intermediate level complexity.",
+      "category": "business",
+      "tags": [
+        "business",
+        "ai-assistant",
+        "template",
+        "intermediate"
+      ],
+      "difficulty_level": "intermediate",
+      "is_featured": true,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Creative - Template 49",
+      "content": "You are an expert AI assistant specializing in creative. Help users with their creative-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for creative tasks with beginner level complexity.",
+      "category": "creative",
+      "tags": [
+        "creative",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    },
+    {
+      "title": "AI Assistant for Education - Template 50",
+      "content": "You are an expert AI assistant specializing in education. Help users with their education-related tasks by providing detailed, actionable guidance and examples.",
+      "description": "Professional AI assistant template for education tasks with beginner level complexity.",
+      "category": "education",
+      "tags": [
+        "education",
+        "ai-assistant",
+        "template",
+        "beginner"
+      ],
+      "difficulty_level": "beginner",
+      "is_featured": false,
+      "author": "system"
+    }
+  ],
+  "metadata": {
+    "total_prompts": 75,
+    "categories": {
+      "development": 10,
+      "creative": 12,
+      "business": 12,
+      "education": 15,
+      "research": 9,
+      "technical": 17
+    },
+    "difficulties": {
+      "intermediate": 37,
+      "beginner": 22,
+      "advanced": 16
+    },
+    "featured_count": 27,
+    "generated_at": "2025-09-06T16:24:14.368Z",
+    "version": "1.0.0"
+  }
+}
