@@ -125,6 +125,38 @@ export default async function handler(req, res) {
         await sql`DELETE FROM prompts WHERE id = ${id}`;
         return send(res, 200, { message: 'Deleted' });
       }
+      // Likes: POST to like, DELETE to unlike
+      if (method === 'POST' && url.endsWith('/likes')) {
+        const likeId = cryptoRandomUUID();
+        await sql`
+          INSERT INTO prompt_likes (id, prompt_id, created_at)
+          VALUES (${likeId}, ${id}, NOW())
+          ON CONFLICT DO NOTHING
+        `;
+        await sql`UPDATE prompts SET total_likes = total_likes + 1 WHERE id = ${id}`;
+        return send(res, 201, { message: 'Liked' });
+      }
+      if (method === 'DELETE' && url.endsWith('/likes')) {
+        // Remove a like (best-effort)
+        const row = await sql`DELETE FROM prompt_likes WHERE prompt_id = ${id} RETURNING id`;
+        if (row.rowCount > 0) {
+          await sql`UPDATE prompts SET total_likes = GREATEST(total_likes - 1, 0) WHERE id = ${id}`;
+        }
+        return send(res, 200, { message: 'Unliked' });
+      }
+      // Ratings: POST with { rating, review }
+      if (method === 'POST' && url.endsWith('/ratings')) {
+        const body = await readJson(req);
+        const score = Math.max(1, Math.min(5, parseInt(body.rating || 0, 10)));
+        const review = body.review || null;
+        const ratingId = cryptoRandomUUID();
+        await sql`
+          INSERT INTO prompt_ratings (id, prompt_id, rating, review, created_at)
+          VALUES (${ratingId}, ${id}, ${score}, ${review}, NOW())
+        `;
+        await recomputePromptRating(id);
+        return send(res, 201, { message: 'Rated', rating: score });
+      }
       return send(res, 405, { error: 'Method not allowed' });
     }
 
@@ -156,6 +188,22 @@ async function ensureTables() {
       total_likes INTEGER DEFAULT 0,
       created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
       updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS prompt_likes (
+      id TEXT PRIMARY KEY,
+      prompt_id TEXT NOT NULL REFERENCES prompts(id) ON DELETE CASCADE,
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS prompt_ratings (
+      id TEXT PRIMARY KEY,
+      prompt_id TEXT NOT NULL REFERENCES prompts(id) ON DELETE CASCADE,
+      rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
+      review TEXT,
+      created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
     )
   `;
 }
@@ -208,4 +256,11 @@ async function readJson(req) {
     });
     req.on('error', reject);
   });
+}
+
+async function recomputePromptRating(promptId) {
+  const agg = await sql`SELECT AVG(rating)::numeric(10,2) AS avg, COUNT(*)::int AS total FROM prompt_ratings WHERE prompt_id = ${promptId}`;
+  const avg = parseFloat(agg.rows[0]?.avg || 0);
+  const total = parseInt(agg.rows[0]?.total || 0, 10);
+  await sql`UPDATE prompts SET average_rating = ${isNaN(avg) ? 0 : avg}, total_ratings = ${isNaN(total) ? 0 : total} WHERE id = ${promptId}`;
 }
