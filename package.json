@@ -8,6 +8,7 @@
     "build": "echo 'Build complete'",
     "start": "vercel dev",
     "test": "vitest",
+    "seed:db": "node scripts/seed-db.js",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
     "test:ui": "vitest --ui",
@@ -18,14 +19,14 @@
   },
   "devDependencies": {
     "@vercel/node": "^3.0.0",
-    "vitest": "^1.0.0",
     "@vitest/ui": "^1.0.0",
     "jsdom": "^23.0.0",
-    "node-mocks-http": "^1.13.0"
+    "node-mocks-http": "^1.13.0",
+    "vitest": "^1.0.0"
   },
   "keywords": [
     "claude-code",
-    "templates", 
+    "templates",
     "components",
     "tracking",
     "analytics"
