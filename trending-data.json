@@ -1,0 +1,579 @@
+{
+  "lastUpdated": "2025-09-03T14:18:06.630914+00:00Z",
+  "trending": {
+    "commands": [
+      {
+        "id": "command-git-workflow/commit",
+        "name": "git-workflow/commit",
+        "category": "git-workflow",
+        "downloadsToday": 5,
+        "downloadsWeek": 71,
+        "downloadsMonth": 171
+      },
+      {
+        "id": "command-documentation/create-architecture-documentation",
+        "name": "documentation/create-architecture-documentation",
+        "category": "documentation",
+        "downloadsToday": 9,
+        "downloadsWeek": 66,
+        "downloadsMonth": 179
+      },
+      {
+        "id": "command-utilities/refactor-code",
+        "name": "utilities/refactor-code",
+        "category": "utilities",
+        "downloadsToday": 2,
+        "downloadsWeek": 47,
+        "downloadsMonth": 112
+      },
+      {
+        "id": "command-automation/workflow-orchestrator",
+        "name": "automation/workflow-orchestrator",
+        "category": "automation",
+        "downloadsToday": 6,
+        "downloadsWeek": 43,
+        "downloadsMonth": 60
+      },
+      {
+        "id": "command-deployment/add-changelog",
+        "name": "deployment/add-changelog",
+        "category": "deployment",
+        "downloadsToday": 4,
+        "downloadsWeek": 37,
+        "downloadsMonth": 109
+      },
+      {
+        "id": "command-utilities/ultra-think",
+        "name": "utilities/ultra-think",
+        "category": "utilities",
+        "downloadsToday": 2,
+        "downloadsWeek": 36,
+        "downloadsMonth": 89
+      },
+      {
+        "id": "command-project-management/todo",
+        "name": "project-management/todo",
+        "category": "project-management",
+        "downloadsToday": 4,
+        "downloadsWeek": 36,
+        "downloadsMonth": 72
+      },
+      {
+        "id": "command-documentation/update-docs",
+        "name": "documentation/update-docs",
+        "category": "documentation",
+        "downloadsToday": 7,
+        "downloadsWeek": 35,
+        "downloadsMonth": 97
+      },
+      {
+        "id": "command-git-workflow/create-pr",
+        "name": "git-workflow/create-pr",
+        "category": "git-workflow",
+        "downloadsToday": 4,
+        "downloadsWeek": 30,
+        "downloadsMonth": 76
+      },
+      {
+        "id": "command-git-workflow/pr-review",
+        "name": "git-workflow/pr-review",
+        "category": "git-workflow",
+        "downloadsToday": 1,
+        "downloadsWeek": 29,
+        "downloadsMonth": 51
+      }
+    ],
+    "agents": [
+      {
+        "id": "agent-development-team/frontend-developer",
+        "name": "development-team/frontend-developer",
+        "category": "development-team",
+        "downloadsToday": 32,
+        "downloadsWeek": 405,
+        "downloadsMonth": 904
+      },
+      {
+        "id": "agent-development-team/ui-ux-designer",
+        "name": "development-team/ui-ux-designer",
+        "category": "development-team",
+        "downloadsToday": 24,
+        "downloadsWeek": 341,
+        "downloadsMonth": 741
+      },
+      {
+        "id": "agent-development-team/backend-architect",
+        "name": "development-team/backend-architect",
+        "category": "development-team",
+        "downloadsToday": 28,
+        "downloadsWeek": 333,
+        "downloadsMonth": 774
+      },
+      {
+        "id": "agent-development-tools/code-reviewer",
+        "name": "development-tools/code-reviewer",
+        "category": "development-tools",
+        "downloadsToday": 21,
+        "downloadsWeek": 319,
+        "downloadsMonth": 761
+      },
+      {
+        "id": "agent-ai-specialists/prompt-engineer",
+        "name": "ai-specialists/prompt-engineer",
+        "category": "ai-specialists",
+        "downloadsToday": 28,
+        "downloadsWeek": 316,
+        "downloadsMonth": 681
+      },
+      {
+        "id": "agent-development-team/fullstack-developer",
+        "name": "development-team/fullstack-developer",
+        "category": "development-team",
+        "downloadsToday": 10,
+        "downloadsWeek": 293,
+        "downloadsMonth": 437
+      },
+      {
+        "id": "agent-development-tools/debugger",
+        "name": "development-tools/debugger",
+        "category": "development-tools",
+        "downloadsToday": 16,
+        "downloadsWeek": 199,
+        "downloadsMonth": 446
+      },
+      {
+        "id": "agent-programming-languages/python-pro",
+        "name": "programming-languages/python-pro",
+        "category": "programming-languages",
+        "downloadsToday": 13,
+        "downloadsWeek": 187,
+        "downloadsMonth": 442
+      },
+      {
+        "id": "agent-development-tools/context-manager",
+        "name": "development-tools/context-manager",
+        "category": "development-tools",
+        "downloadsToday": 13,
+        "downloadsWeek": 171,
+        "downloadsMonth": 375
+      },
+      {
+        "id": "agent-development-tools/test-engineer",
+        "name": "development-tools/test-engineer",
+        "category": "development-tools",
+        "downloadsToday": 9,
+        "downloadsWeek": 166,
+        "downloadsMonth": 275
+      }
+    ],
+    "settings": [
+      {
+        "id": "setting-statusline/context-monitor",
+        "name": "statusline/context-monitor",
+        "category": "statusline",
+        "downloadsToday": 40,
+        "downloadsWeek": 147,
+        "downloadsMonth": 147
+      },
+      {
+        "id": "setting-global/git-commit-settings",
+        "name": "global/git-commit-settings",
+        "category": "global",
+        "downloadsToday": 0,
+        "downloadsWeek": 42,
+        "downloadsMonth": 95
+      },
+      {
+        "id": "setting-permissions/allow-git-operations",
+        "name": "permissions/allow-git-operations",
+        "category": "permissions",
+        "downloadsToday": 0,
+        "downloadsWeek": 35,
+        "downloadsMonth": 73
+      },
+      {
+        "id": "setting-environment/performance-optimization",
+        "name": "environment/performance-optimization",
+        "category": "environment",
+        "downloadsToday": 1,
+        "downloadsWeek": 33,
+        "downloadsMonth": 79
+      },
+      {
+        "id": "setting-permissions/development-mode",
+        "name": "permissions/development-mode",
+        "category": "permissions",
+        "downloadsToday": 0,
+        "downloadsWeek": 33,
+        "downloadsMonth": 64
+      },
+      {
+        "id": "setting-permissions/allow-npm-commands",
+        "name": "permissions/allow-npm-commands",
+        "category": "permissions",
+        "downloadsToday": 0,
+        "downloadsWeek": 32,
+        "downloadsMonth": 74
+      },
+      {
+        "id": "setting-statusline/colorful-statusline",
+        "name": "statusline/colorful-statusline",
+        "category": "statusline",
+        "downloadsToday": 3,
+        "downloadsWeek": 31,
+        "downloadsMonth": 57
+      },
+      {
+        "id": "setting-environment/development-utils",
+        "name": "environment/development-utils",
+        "category": "environment",
+        "downloadsToday": 3,
+        "downloadsWeek": 27,
+        "downloadsMonth": 63
+      },
+      {
+        "id": "setting-statusline/git-branch-statusline",
+        "name": "statusline/git-branch-statusline",
+        "category": "statusline",
+        "downloadsToday": 0,
+        "downloadsWeek": 22,
+        "downloadsMonth": 43
+      },
+      {
+        "id": "setting-statusline/project-info-statusline",
+        "name": "statusline/project-info-statusline",
+        "category": "statusline",
+        "downloadsToday": 0,
+        "downloadsWeek": 18,
+        "downloadsMonth": 31
+      }
+    ],
+    "hooks": [
+      {
+        "id": "hook-automation/simple-notifications",
+        "name": "automation/simple-notifications",
+        "category": "automation",
+        "downloadsToday": 3,
+        "downloadsWeek": 69,
+        "downloadsMonth": 157
+      },
+      {
+        "id": "hook-development-tools/smart-formatting",
+        "name": "development-tools/smart-formatting",
+        "category": "development-tools",
+        "downloadsToday": 5,
+        "downloadsWeek": 53,
+        "downloadsMonth": 136
+      },
+      {
+        "id": "hook-development-tools/lint-on-save",
+        "name": "development-tools/lint-on-save",
+        "category": "development-tools",
+        "downloadsToday": 8,
+        "downloadsWeek": 53,
+        "downloadsMonth": 144
+      },
+      {
+        "id": "hook-git-workflow/smart-commit",
+        "name": "git-workflow/smart-commit",
+        "category": "git-workflow",
+        "downloadsToday": 4,
+        "downloadsWeek": 51,
+        "downloadsMonth": 158
+      },
+      {
+        "id": "hook-development-tools/change-tracker",
+        "name": "development-tools/change-tracker",
+        "category": "development-tools",
+        "downloadsToday": 8,
+        "downloadsWeek": 44,
+        "downloadsMonth": 99
+      },
+      {
+        "id": "hook-post-tool/format-javascript-files",
+        "name": "post-tool/format-javascript-files",
+        "category": "post-tool",
+        "downloadsToday": 2,
+        "downloadsWeek": 43,
+        "downloadsMonth": 93
+      },
+      {
+        "id": "hook-post-tool/format-python-files",
+        "name": "post-tool/format-python-files",
+        "category": "post-tool",
+        "downloadsToday": 3,
+        "downloadsWeek": 42,
+        "downloadsMonth": 98
+      },
+      {
+        "id": "hook-automation/dependency-checker",
+        "name": "automation/dependency-checker",
+        "category": "automation",
+        "downloadsToday": 1,
+        "downloadsWeek": 35,
+        "downloadsMonth": 107
+      },
+      {
+        "id": "hook-git-workflow/auto-git-add",
+        "name": "git-workflow/auto-git-add",
+        "category": "git-workflow",
+        "downloadsToday": 4,
+        "downloadsWeek": 31,
+        "downloadsMonth": 112
+      },
+      {
+        "id": "hook-development-tools/file-backup",
+        "name": "development-tools/file-backup",
+        "category": "development-tools",
+        "downloadsToday": 7,
+        "downloadsWeek": 31,
+        "downloadsMonth": 80
+      }
+    ],
+    "mcps": [
+      {
+        "id": "mcp-devtools/context7",
+        "name": "devtools/context7",
+        "category": "devtools",
+        "downloadsToday": 13,
+        "downloadsWeek": 255,
+        "downloadsMonth": 573
+      },
+      {
+        "id": "mcp-integration/memory-integration",
+        "name": "integration/memory-integration",
+        "category": "integration",
+        "downloadsToday": 6,
+        "downloadsWeek": 115,
+        "downloadsMonth": 289
+      },
+      {
+        "id": "mcp-browser_automation/playwright-mcp-server",
+        "name": "browser_automation/playwright-mcp-server",
+        "category": "browser_automation",
+        "downloadsToday": 7,
+        "downloadsWeek": 102,
+        "downloadsMonth": 206
+      },
+      {
+        "id": "mcp-browser_automation/browser-use-mcp-server",
+        "name": "browser_automation/browser-use-mcp-server",
+        "category": "browser_automation",
+        "downloadsToday": 6,
+        "downloadsWeek": 89,
+        "downloadsMonth": 216
+      },
+      {
+        "id": "mcp-database/postgresql-integration",
+        "name": "database/postgresql-integration",
+        "category": "database",
+        "downloadsToday": 7,
+        "downloadsWeek": 83,
+        "downloadsMonth": 186
+      },
+      {
+        "id": "mcp-browser_automation/playwright-mcp",
+        "name": "browser_automation/playwright-mcp",
+        "category": "browser_automation",
+        "downloadsToday": 6,
+        "downloadsWeek": 82,
+        "downloadsMonth": 201
+      },
+      {
+        "id": "mcp-integration/github-integration",
+        "name": "integration/github-integration",
+        "category": "integration",
+        "downloadsToday": 5,
+        "downloadsWeek": 82,
+        "downloadsMonth": 221
+      },
+      {
+        "id": "mcp-browser_automation/mcp-server-playwright",
+        "name": "browser_automation/mcp-server-playwright",
+        "category": "browser_automation",
+        "downloadsToday": 3,
+        "downloadsWeek": 75,
+        "downloadsMonth": 195
+      },
+      {
+        "id": "mcp-filesystem/filesystem-access",
+        "name": "filesystem/filesystem-access",
+        "category": "filesystem",
+        "downloadsToday": 3,
+        "downloadsWeek": 74,
+        "downloadsMonth": 173
+      },
+      {
+        "id": "mcp-database/supabase",
+        "name": "database/supabase",
+        "category": "database",
+        "downloadsToday": 3,
+        "downloadsWeek": 74,
+        "downloadsMonth": 74
+      }
+    ],
+    "templates": [
+      {
+        "id": "template-python/none",
+        "name": "python/none",
+        "category": "python",
+        "downloadsToday": 4,
+        "downloadsWeek": 60,
+        "downloadsMonth": 167
+      },
+      {
+        "id": "template-common/null",
+        "name": "common/null",
+        "category": "common",
+        "downloadsToday": 4,
+        "downloadsWeek": 43,
+        "downloadsMonth": 65
+      },
+      {
+        "id": "template-javascript-typescript/react",
+        "name": "javascript-typescript/react",
+        "category": "javascript-typescript",
+        "downloadsToday": 1,
+        "downloadsWeek": 33,
+        "downloadsMonth": 68
+      },
+      {
+        "id": "template-common/none",
+        "name": "common/none",
+        "category": "common",
+        "downloadsToday": 0,
+        "downloadsWeek": 28,
+        "downloadsMonth": 57
+      },
+      {
+        "id": "template-javascript-typescript/none",
+        "name": "javascript-typescript/none",
+        "category": "javascript-typescript",
+        "downloadsToday": 2,
+        "downloadsWeek": 27,
+        "downloadsMonth": 61
+      },
+      {
+        "id": "template-python/fastapi",
+        "name": "python/fastapi",
+        "category": "python",
+        "downloadsToday": 3,
+        "downloadsWeek": 12,
+        "downloadsMonth": 25
+      },
+      {
+        "id": "template-javascript-typescript/node",
+        "name": "javascript-typescript/node",
+        "category": "javascript-typescript",
+        "downloadsToday": 0,
+        "downloadsWeek": 9,
+        "downloadsMonth": 18
+      },
+      {
+        "id": "template-python/django",
+        "name": "python/django",
+        "category": "python",
+        "downloadsToday": 1,
+        "downloadsWeek": 6,
+        "downloadsMonth": 6
+      },
+      {
+        "id": "template-common/react",
+        "name": "common/react",
+        "category": "common",
+        "downloadsToday": 0,
+        "downloadsWeek": 4,
+        "downloadsMonth": 6
+      },
+      {
+        "id": "template-ruby/rails",
+        "name": "ruby/rails",
+        "category": "ruby",
+        "downloadsToday": 1,
+        "downloadsWeek": 4,
+        "downloadsMonth": 4
+      }
+    ],
+    "all": [
+      {
+        "id": "agent-development-team/frontend-developer",
+        "name": "development-team/frontend-developer",
+        "category": "development-team",
+        "downloadsToday": 32,
+        "downloadsWeek": 405,
+        "downloadsMonth": 904
+      },
+      {
+        "id": "agent-development-team/ui-ux-designer",
+        "name": "development-team/ui-ux-designer",
+        "category": "development-team",
+        "downloadsToday": 24,
+        "downloadsWeek": 341,
+        "downloadsMonth": 741
+      },
+      {
+        "id": "agent-development-team/backend-architect",
+        "name": "development-team/backend-architect",
+        "category": "development-team",
+        "downloadsToday": 28,
+        "downloadsWeek": 333,
+        "downloadsMonth": 774
+      },
+      {
+        "id": "agent-development-tools/code-reviewer",
+        "name": "development-tools/code-reviewer",
+        "category": "development-tools",
+        "downloadsToday": 21,
+        "downloadsWeek": 319,
+        "downloadsMonth": 761
+      },
+      {
+        "id": "agent-ai-specialists/prompt-engineer",
+        "name": "ai-specialists/prompt-engineer",
+        "category": "ai-specialists",
+        "downloadsToday": 28,
+        "downloadsWeek": 316,
+        "downloadsMonth": 681
+      },
+      {
+        "id": "agent-development-team/fullstack-developer",
+        "name": "development-team/fullstack-developer",
+        "category": "development-team",
+        "downloadsToday": 10,
+        "downloadsWeek": 293,
+        "downloadsMonth": 437
+      },
+      {
+        "id": "mcp-devtools/context7",
+        "name": "devtools/context7",
+        "category": "devtools",
+        "downloadsToday": 13,
+        "downloadsWeek": 255,
+        "downloadsMonth": 573
+      },
+      {
+        "id": "agent-development-tools/debugger",
+        "name": "development-tools/debugger",
+        "category": "development-tools",
+        "downloadsToday": 16,
+        "downloadsWeek": 199,
+        "downloadsMonth": 446
+      },
+      {
+        "id": "agent-programming-languages/python-pro",
+        "name": "programming-languages/python-pro",
+        "category": "programming-languages",
+        "downloadsToday": 13,
+        "downloadsWeek": 187,
+        "downloadsMonth": 442
+      },
+      {
+        "id": "agent-development-tools/context-manager",
+        "name": "development-tools/context-manager",
+        "category": "development-tools",
+        "downloadsToday": 13,
+        "downloadsWeek": 171,
+        "downloadsMonth": 375
+      }
+    ]
+  }
+}

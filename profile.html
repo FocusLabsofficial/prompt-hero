@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Prompt Hero</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+        }
+
+        .profile-info h1 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-size: 2rem;
+        }
+
+        .profile-username {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-bio {
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-link:hover {
+            text-decoration: underline;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .profile-stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--hover-bg);
+            border-radius: 8px;
+        }
+
+        .profile-stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .profile-stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .profile-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section h2 {
+            margin: 0 0 1.5rem 0;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .prompt-item, .collection-item {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .prompt-item:hover, .collection-item:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+        }
+
+        .prompt-item h3, .collection-item h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .prompt-item p, .collection-item p {
+            color: var(--text-secondary);
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+        }
+
+        .prompt-meta, .collection-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .prompt-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .category-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .category-development { background: var(--category-dev-bg); color: var(--category-dev-color); }
+        .category-creative { background: var(--category-creative-bg); color: var(--category-creative-color); }
+        .category-business { background: var(--category-business-bg); color: var(--category-business-color); }
+        .category-education { background: var(--category-education-bg); color: var(--category-education-color); }
+        .category-research { background: var(--category-research-bg); color: var(--category-research-color); }
+        .category-technical { background: var(--category-technical-bg); color: var(--category-technical-color); }
+
+        .edit-profile-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-profile-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state h3 {
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 1rem;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .profile-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .profile-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>PROMPT HERO</h1>
+                    <p>Discover, rate, and share the best AI prompts</p>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#collections" class="nav-link">Collections</a>
+                    <a href="index.html#trending" class="nav-link">Trending</a>
+                    <a href="auth.html" class="nav-link" data-auth="unauthenticated">Login</a>
+                    <a href="#" class="nav-link" data-auth="authenticated" id="userProfileLink">Profile</a>
+                    <a href="#" class="nav-link" data-auth="authenticated" id="logoutLink">Logout</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="profile-container">
+                <div class="loading" id="loadingState">
+                    <div class="spinner"></div>
+                    <p>Loading profile...</p>
+                </div>
+
+                <div id="profileContent" style="display: none;">
+                    <div class="profile-header">
+                        <img src="" alt="Profile Avatar" class="profile-avatar" id="profileAvatar">
+                        <div class="profile-info">
+                            <h1 id="profileDisplayName">Loading...</h1>
+                            <div class="profile-username" id="profileUsername">@username</div>
+                            <div class="profile-bio" id="profileBio">No bio available</div>
+                            <div class="profile-links" id="profileLinks"></div>
+                            <button class="edit-profile-btn" id="editProfileBtn" style="display: none;">Edit Profile</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats" id="profileStats">
+                        <div class="profile-stat">
+                            <span class="profile-stat-number" id="promptsCount">0</span>
+                            <span class="profile-stat-label">Prompts</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-number" id="favoritesCount">0</span>
+                            <span class="profile-stat-label">Favorites</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-number" id="collectionsCount">0</span>
+                            <span class="profile-stat-label">Collections</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-number" id="averageRating">0.0</span>
+                            <span class="profile-stat-label">Avg Rating</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-content">
+                        <div class="profile-section">
+                            <h2>Recent Prompts</h2>
+                            <div id="recentPrompts">
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                    <p>Loading prompts...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h2>Collections</h2>
+                            <div id="userCollections">
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                    <p>Loading collections...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2>Favorite Prompts</h2>
+                        <div id="favoritePrompts">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                <p>Loading favorites...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/error-handler.js"></script>
+    <script src="js/auth-manager.js"></script>
+    <script>
+        // Profile page functionality
+        class ProfilePage {
+            constructor() {
+                this.userId = null;
+                this.isOwnProfile = false;
+                this.init();
+            }
+
+            async init() {
+                // Check authentication
+                if (!window.authManager.isUserAuthenticated()) {
+                    window.location.href = 'auth.html';
+                    return;
+                }
+
+                // Get user ID from URL or use current user
+                const urlParams = new URLSearchParams(window.location.search);
+                this.userId = urlParams.get('id') || window.authManager.getCurrentUser()?.id;
+                this.isOwnProfile = this.userId === window.authManager.getCurrentUser()?.id;
+
+                await this.loadProfile();
+                this.setupEventListeners();
+            }
+
+            async loadProfile() {
+                try {
+                    const response = await window.authManager.authenticatedFetch(`/api/users/${this.userId}`);
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(data.error || 'Failed to load profile');
+                    }
+
+                    this.renderProfile(data);
+                } catch (error) {
+                    console.error('Error loading profile:', error);
+                    this.showError('Failed to load profile');
+                }
+            }
+
+            renderProfile(data) {
+                const { user, recent_prompts, collections, favorite_prompts } = data;
+
+                // Hide loading state
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('profileContent').style.display = 'block';
+
+                // Render profile header
+                this.renderProfileHeader(user);
+                
+                // Render stats
+                this.renderStats(user.stats);
+
+                // Render sections
+                this.renderRecentPrompts(recent_prompts);
+                this.renderCollections(collections);
+                this.renderFavoritePrompts(favorite_prompts);
+
+                // Show edit button for own profile
+                if (this.isOwnProfile) {
+                    document.getElementById('editProfileBtn').style.display = 'block';
+                }
+            }
+
+            renderProfileHeader(user) {
+                document.getElementById('profileDisplayName').textContent = user.display_name || user.username;
+                document.getElementById('profileUsername').textContent = `@${user.username}`;
+                document.getElementById('profileBio').textContent = user.bio || 'No bio available';
+
+                // Set avatar
+                const avatar = document.getElementById('profileAvatar');
+                if (user.avatar_url) {
+                    avatar.src = user.avatar_url;
+                } else {
+                    avatar.src = window.authManager.generateDefaultAvatar(user.username);
+                }
+
+                // Render profile links
+                const linksContainer = document.getElementById('profileLinks');
+                if (user.website_url) {
+                    const websiteLink = document.createElement('a');
+                    websiteLink.href = user.website_url;
+                    websiteLink.className = 'profile-link';
+                    websiteLink.innerHTML = '🌐 Website';
+                    websiteLink.target = '_blank';
+                    linksContainer.appendChild(websiteLink);
+                }
+
+                if (user.location) {
+                    const locationSpan = document.createElement('span');
+                    locationSpan.className = 'profile-link';
+                    locationSpan.innerHTML = `📍 ${user.location}`;
+                    linksContainer.appendChild(locationSpan);
+                }
+            }
+
+            renderStats(stats) {
+                document.getElementById('promptsCount').textContent = stats.prompts_count;
+                document.getElementById('favoritesCount').textContent = stats.favorites_count;
+                document.getElementById('collectionsCount').textContent = stats.collections_count;
+                document.getElementById('averageRating').textContent = stats.average_rating.toFixed(1);
+            }
+
+            renderRecentPrompts(prompts) {
+                const container = document.getElementById('recentPrompts');
+                
+                if (prompts.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No prompts yet</h3>
+                            <p>This user hasn't created any prompts.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = prompts.map(prompt => `
+                    <div class="prompt-item">
+                        <h3><a href="index.html?prompt=${prompt.id}">${this.escapeHtml(prompt.title)}</a></h3>
+                        <p>${this.escapeHtml(prompt.description)}</p>
+                        <div class="prompt-meta">
+                            <span class="category-badge category-${prompt.category}">${prompt.category}</span>
+                            <span class="prompt-rating">
+                                ${this.generateStars(prompt.average_rating)}
+                                <span>(${prompt.total_ratings})</span>
+                            </span>
+                            <span>${new Date(prompt.created_at).toLocaleDateString()}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderCollections(collections) {
+                const container = document.getElementById('userCollections');
+                
+                if (collections.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No collections yet</h3>
+                            <p>This user hasn't created any collections.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = collections.map(collection => `
+                    <div class="collection-item">
+                        <h3><a href="index.html?collection=${collection.id}">${this.escapeHtml(collection.name)}</a></h3>
+                        <p>${this.escapeHtml(collection.description || 'No description')}</p>
+                        <div class="collection-meta">
+                            <span>${collection.prompt_count} prompts</span>
+                            <span>${collection.is_public ? 'Public' : 'Private'}</span>
+                            <span>${new Date(collection.created_at).toLocaleDateString()}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderFavoritePrompts(prompts) {
+                const container = document.getElementById('favoritePrompts');
+                
+                if (prompts.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <h3>No favorites yet</h3>
+                            <p>This user hasn't favorited any prompts.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = prompts.map(prompt => `
+                    <div class="prompt-item">
+                        <h3><a href="index.html?prompt=${prompt.id}">${this.escapeHtml(prompt.title)}</a></h3>
+                        <p>${this.escapeHtml(prompt.description)}</p>
+                        <div class="prompt-meta">
+                            <span class="category-badge category-${prompt.category}">${prompt.category}</span>
+                            <span class="prompt-rating">
+                                ${this.generateStars(prompt.average_rating)}
+                                <span>(${prompt.total_ratings})</span>
+                            </span>
+                            <span>by @${prompt.author_username}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            setupEventListeners() {
+                document.getElementById('editProfileBtn').addEventListener('click', () => {
+                    this.editProfile();
+                });
+
+                document.getElementById('logoutLink').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.authManager.logout();
+                    window.location.href = 'index.html';
+                });
+            }
+
+            editProfile() {
+                // TODO: Implement profile editing modal
+                alert('Profile editing will be implemented soon!');
+            }
+
+            generateStars(rating) {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                
+                return '★'.repeat(fullStars) + 
+                       (hasHalfStar ? '☆' : '') + 
+                       '☆'.repeat(emptyStars);
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            showError(message) {
+                if (window.errorHandler) {
+                    window.errorHandler.showError(message);
+                } else {
+                    alert(message);
+                }
+            }
+        }
+
+        // Initialize profile page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ProfilePage();
+        });
+    </script>
+</body>
+</html>

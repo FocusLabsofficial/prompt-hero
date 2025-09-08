@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Prompt Hero</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group input.error {
+            border-color: var(--error-color);
+        }
+
+        .field-error {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .password-requirements {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .password-requirements ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .password-requirements li {
+            margin-bottom: 0.25rem;
+        }
+
+        .password-requirements li.valid {
+            color: var(--success-color);
+        }
+
+        .password-requirements li.invalid {
+            color: var(--error-color);
+        }
+
+        .auth-submit {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .auth-submit:hover {
+            background: var(--accent-hover);
+        }
+
+        .auth-submit:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .auth-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-auth {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .social-auth p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-btn {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--hover-bg);
+            border-color: var(--accent-color);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: var(--success-bg);
+            color: var(--success-color);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            background: var(--error-bg);
+            color: var(--error-color);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>PROMPT HERO</h1>
+                    <p>Discover, rate, and share the best AI prompts</p>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#collections" class="nav-link">Collections</a>
+                    <a href="index.html#trending" class="nav-link">Trending</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="register">Register</button>
+                </div>
+
+                <div class="success-message" id="successMessage"></div>
+                <div class="error-message" id="errorMessage"></div>
+
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                        <div class="field-error" id="loginEmailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                        <div class="field-error" id="loginPasswordError"></div>
+                    </div>
+
+                    <button type="submit" class="auth-submit" id="loginSubmit">
+                        Login
+                    </button>
+
+                    <div class="loading" id="loginLoading">
+                        <div class="spinner"></div>
+                        <p>Logging in...</p>
+                    </div>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerUsername">Username</label>
+                        <input type="text" id="registerUsername" name="username" required>
+                        <div class="field-error" id="registerUsernameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" name="email" required>
+                        <div class="field-error" id="registerEmailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" name="password" required>
+                        <div class="field-error" id="registerPasswordError"></div>
+                        <div class="password-requirements" id="passwordRequirements">
+                            <p>Password must contain:</p>
+                            <ul>
+                                <li id="req-length">At least 8 characters</li>
+                                <li id="req-lowercase">One lowercase letter</li>
+                                <li id="req-uppercase">One uppercase letter</li>
+                                <li id="req-number">One number</li>
+                                <li id="req-special">One special character</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <div class="field-error" id="confirmPasswordError"></div>
+                    </div>
+
+                    <button type="submit" class="auth-submit" id="registerSubmit">
+                        Register
+                    </button>
+
+                    <div class="loading" id="registerLoading">
+                        <div class="spinner"></div>
+                        <p>Creating account...</p>
+                    </div>
+                </form>
+
+                <div class="auth-links">
+                    <p>Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+                    <p>Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+                </div>
+
+                <div class="social-auth">
+                    <p>Or continue with:</p>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn" id="googleAuth">
+                            <span>🔍</span>
+                            Google
+                        </a>
+                        <a href="#" class="social-btn" id="githubAuth">
+                            <span>🐙</span>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/error-handler.js"></script>
+    <script src="js/auth-manager.js"></script>
+    <script>
+        // Authentication form handling
+        class AuthForm {
+            constructor() {
+                this.currentTab = 'login';
+                this.init();
+            }
+
+            init() {
+                this.setupTabSwitching();
+                this.setupFormSubmission();
+                this.setupPasswordValidation();
+                this.setupSocialAuth();
+            }
+
+            setupTabSwitching() {
+                const tabs = document.querySelectorAll('.auth-tab');
+                const forms = document.querySelectorAll('.auth-form');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const tabName = tab.getAttribute('data-tab');
+                        this.switchTab(tabName);
+                    });
+                });
+
+                // Switch links
+                document.getElementById('switchToLogin').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.switchTab('login');
+                });
+
+                document.getElementById('switchToRegister').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.switchTab('register');
+                });
+            }
+
+            switchTab(tabName) {
+                this.currentTab = tabName;
+
+                // Update tab buttons
+                document.querySelectorAll('.auth-tab').forEach(tab => {
+                    tab.classList.toggle('active', tab.getAttribute('data-tab') === tabName);
+                });
+
+                // Update forms
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.toggle('active', form.id === `${tabName}Form`);
+                });
+
+                // Clear messages
+                this.clearMessages();
+                this.clearErrors();
+            }
+
+            setupFormSubmission() {
+                document.getElementById('loginForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleLogin();
+                });
+
+                document.getElementById('registerForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleRegister();
+                });
+            }
+
+            async handleLogin() {
+                const form = document.getElementById('loginForm');
+                const formData = new FormData(form);
+                const credentials = {
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                };
+
+                this.setLoading('login', true);
+                this.clearErrors();
+
+                const result = await window.authManager.login(credentials);
+
+                this.setLoading('login', false);
+
+                if (result.success) {
+                    this.showSuccess('Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    this.showError(result.error);
+                }
+            }
+
+            async handleRegister() {
+                const form = document.getElementById('registerForm');
+                const formData = new FormData(form);
+                const userData = {
+                    username: formData.get('username'),
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                };
+
+                // Validate password confirmation
+                const confirmPassword = formData.get('confirmPassword');
+                if (userData.password !== confirmPassword) {
+                    this.showFieldError('confirmPassword', 'Passwords do not match');
+                    return;
+                }
+
+                this.setLoading('register', true);
+                this.clearErrors();
+
+                const result = await window.authManager.register(userData);
+
+                this.setLoading('register', false);
+
+                if (result.success) {
+                    this.showSuccess('Registration successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    this.showError(result.error);
+                }
+            }
+
+            setupPasswordValidation() {
+                const passwordInput = document.getElementById('registerPassword');
+                passwordInput.addEventListener('input', () => {
+                    this.validatePassword(passwordInput.value);
+                });
+            }
+
+            validatePassword(password) {
+                const requirements = {
+                    length: password.length >= 8,
+                    lowercase: /[a-z]/.test(password),
+                    uppercase: /[A-Z]/.test(password),
+                    number: /\d/.test(password),
+                    special: /[@$!%*?&]/.test(password)
+                };
+
+                Object.keys(requirements).forEach(req => {
+                    const element = document.getElementById(`req-${req}`);
+                    if (requirements[req]) {
+                        element.classList.add('valid');
+                        element.classList.remove('invalid');
+                    } else {
+                        element.classList.add('invalid');
+                        element.classList.remove('valid');
+                    }
+                });
+
+                return Object.values(requirements).every(Boolean);
+            }
+
+            setupSocialAuth() {
+                document.getElementById('googleAuth').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showError('Google authentication not yet implemented');
+                });
+
+                document.getElementById('githubAuth').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showError('GitHub authentication not yet implemented');
+                });
+            }
+
+            setLoading(formType, isLoading) {
+                const loading = document.getElementById(`${formType}Loading`);
+                const submit = document.getElementById(`${formType}Submit`);
+                
+                if (isLoading) {
+                    loading.classList.add('show');
+                    submit.disabled = true;
+                } else {
+                    loading.classList.remove('show');
+                    submit.disabled = false;
+                }
+            }
+
+            showSuccess(message) {
+                const successEl = document.getElementById('successMessage');
+                successEl.textContent = message;
+                successEl.classList.add('show');
+                setTimeout(() => {
+                    successEl.classList.remove('show');
+                }, 5000);
+            }
+
+            showError(message) {
+                const errorEl = document.getElementById('errorMessage');
+                errorEl.textContent = message;
+                errorEl.classList.add('show');
+                setTimeout(() => {
+                    errorEl.classList.remove('show');
+                }, 5000);
+            }
+
+            showFieldError(fieldName, message) {
+                const errorEl = document.getElementById(`${fieldName}Error`);
+                errorEl.textContent = message;
+                errorEl.style.display = 'block';
+            }
+
+            clearErrors() {
+                document.querySelectorAll('.field-error').forEach(error => {
+                    error.textContent = '';
+                    error.style.display = 'none';
+                });
+            }
+
+            clearMessages() {
+                document.getElementById('successMessage').classList.remove('show');
+                document.getElementById('errorMessage').classList.remove('show');
+            }
+        }
+
+        // Initialize auth form when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new AuthForm();
+        });
+    </script>
+</body>
+</html>
