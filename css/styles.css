@@ -1,3 +1,126 @@
+/* Accessibility and focus styles */
+:root {
+  --focus-ring: 2px solid rgba(59,130,246,0.8);
+}
+
+*:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Buttons and chips */
+.header-btn, .copy-btn, .rate-btn, .favorite-btn, .add-to-collection-btn, .filter-chip, .btn-primary, .btn-secondary {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .05s;
+}
+
+.filter-chip {
+  border: 1px solid var(--border-color);
+}
+.filter-chip:hover {
+  background: var(--hover-bg);
+}
+.filter-chip.active {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.favorite-btn.favorited {
+  color: var(--favorite-color, #e11d48);
+}
+
+.copy-btn:active,
+.rate-btn:active,
+.favorite-btn:active,
+.add-to-collection-btn:active {
+  transform: translateY(1px);
+}
+
+/* Prompt cards */
+.prompt-card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.prompt-card h3 {
+  line-height: 1.3;
+}
+.prompt-meta {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  color: var(--text-secondary);
+}
+.prompt-actions {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.prompt-rating .stars {
+  letter-spacing: 1px;
+  color: var(--rating-color, #f59e0b);
+}
+
+/* Notification toasts */
+.notification-stack {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  z-index: 9999;
+}
+
+.notification {
+  min-width: 260px;
+  max-width: 360px;
+  padding: .75rem .9rem;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  transform: translateY(-6px);
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.notification .notification-content {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.notification .notification-close {
+  margin-left: auto;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+}
+.notification.success { background: #16a34a; }
+.notification.error { background: #dc2626; }
+.notification.warning { background: #d97706; }
+.notification.info { background: #2563eb; }
+
+/* Improved empty/loading states */
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+.loading-indicator .loading-text h3 {
+  margin: 0 0 .3rem 0;
+}
+
+/* Better contrast for category badges */
+.category {
+  padding: .15rem .45rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--hover-bg);
+  font-size: .75rem;
+}
 /* Terminal theme CSS based on Claude Code Analytics dashboard */
 :root {
     /* Dark theme colors (terminal style) */

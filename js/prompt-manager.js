@@ -81,6 +81,8 @@ class PromptManager {
         const card = document.createElement('div');
         card.className = 'prompt-card';
         card.dataset.promptId = prompt.id;
+        card.setAttribute('role', 'article');
+        card.setAttribute('aria-label', `${prompt.title}`);
         
         const isFavorited = this.favorites.includes(prompt.id);
         const rating = prompt.average_rating || 0;
@@ -100,16 +102,16 @@ class PromptManager {
             </div>
             <p>${this.escapeHtml(prompt.description || '')}</p>
             <div class="prompt-actions">
-                <button class="copy-prompt-btn copy-btn" data-prompt-id="${prompt.id}">
+                <button class="copy-prompt-btn copy-btn" data-prompt-id="${prompt.id}" aria-label="Copy prompt" tabindex="0">
                     Copy Prompt
                 </button>
-                <button class="favorite-btn ${isFavorited ? 'favorited' : ''}" data-prompt-id="${prompt.id}" title="Add to favorites">
+                <button class="favorite-btn ${isFavorited ? 'favorited' : ''}" data-prompt-id="${prompt.id}" title="Add to favorites" aria-label="${isFavorited ? 'Remove from favorites' : 'Add to favorites'}" tabindex="0">
                     ${isFavorited ? '❤️' : '🤍'}
                 </button>
-                <button class="add-to-collection-btn" data-prompt-id="${prompt.id}" title="Add to collection">
+                <button class="add-to-collection-btn" data-prompt-id="${prompt.id}" title="Add to collection" aria-label="Add to collection" tabindex="0">
                     📁
                 </button>
-                <button class="rate-btn" data-prompt-id="${prompt.id}" title="Rate this prompt">
+                <button class="rate-btn" data-prompt-id="${prompt.id}" title="Rate this prompt" aria-label="Rate this prompt" tabindex="0">
                     ⭐
                 </button>
             </div>
@@ -172,7 +174,7 @@ class PromptManager {
     }
 
     // Toggle favorite status
-    toggleFavorite(button) {
+    async toggleFavorite(button) {
         const promptId = button.dataset.promptId;
         const isFavorited = this.favorites.includes(promptId);
         
@@ -181,11 +183,13 @@ class PromptManager {
             button.textContent = '🤍';
             button.classList.remove('favorited');
             this.showNotification('Removed from favorites', 'info');
+            try { await fetch(`/api/prompts/${encodeURIComponent(promptId)}/likes`, { method: 'DELETE' }); } catch {}
         } else {
             this.favorites.push(promptId);
             button.textContent = '❤️';
             button.classList.add('favorited');
             this.showNotification('Added to favorites', 'success');
+            try { await fetch(`/api/prompts/${encodeURIComponent(promptId)}/likes`, { method: 'POST' }); } catch {}
         }
         
         this.saveFavoritesToStorage();
@@ -272,18 +276,35 @@ class PromptManager {
         }
 
         try {
-            // In a real app, this would make an API call
-            // For now, we'll simulate it
+            const res = await fetch(`/api/prompts/${encodeURIComponent(promptId)}/ratings`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ rating, review })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Failed to submit rating');
             this.showNotification('Rating submitted successfully!', 'success');
             this.trackEvent('rate', promptId, { rating, review });
-            
-            // Update the prompt's rating display
-            this.updatePromptRating(promptId, rating);
-            
+            await this.refreshPromptCard(promptId);
         } catch (error) {
             console.error('Error submitting rating:', error);
             this.showNotification('Failed to submit rating', 'error');
         }
+    }
+
+    async refreshPromptCard(promptId) {
+        try {
+            const res = await fetch(`/api/prompts/${encodeURIComponent(promptId)}`);
+            if (!res.ok) return;
+            const { prompt } = await res.json();
+            const idx = this.prompts.findIndex(p => p.id === promptId);
+            if (idx >= 0) this.prompts[idx] = prompt;
+            const card = document.querySelector(`[data-prompt-id="${promptId}"]`);
+            if (card && card.parentElement) {
+                const newCard = this.createPromptCard(prompt);
+                card.parentElement.replaceChild(newCard, card);
+            }
+        } catch {}
     }
 
     // Update prompt rating display
@@ -369,27 +390,29 @@ class PromptManager {
         return div.innerHTML;
     }
 
-    // Load prompts from API or local data
+    // Load prompts from API
     async loadPrompts(filters = {}) {
         try {
-            // Try to load from migrated prompts file first
-            const response = await fetch('prompts.json');
+            const params = new URLSearchParams();
+            if (filters.query) params.set('q', filters.query);
+            if (filters.category && filters.category !== 'all') params.set('category', filters.category);
+            if (filters.page) params.set('page', String(filters.page));
+            if (filters.limit) params.set('limit', String(filters.limit));
+
+            const url = `/api/prompts${params.toString() ? `?${params.toString()}` : ''}`;
+            const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
             if (response.ok) {
                 const data = await response.json();
                 this.prompts = data.prompts || [];
-                console.log(`📦 Loaded ${this.prompts.length} prompts from migration`);
-                return this.prompts;
-            } else {
-                // Fallback to mock data
-                this.prompts = this.generateMockPrompts();
-                console.log('📦 Using mock prompts data');
                 return this.prompts;
             }
+            throw new Error('Failed to load prompts');
         } catch (error) {
-            console.error('Error loading prompts:', error);
-            // Fallback to mock data
-            this.prompts = this.generateMockPrompts();
-            this.showNotification('Using sample prompts', 'warning');
+            console.error('Error loading prompts from API:', error);
+            if (!this.prompts || this.prompts.length === 0) {
+                this.prompts = this.generateMockPrompts();
+            }
+            this.showNotification('Showing cached/sample prompts', 'warning');
             return this.prompts;
         }
     }
