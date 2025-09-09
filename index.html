@@ -103,7 +103,8 @@
                         </svg>
                         Submit Prompt
                     </a>
-                    <a href="#collections" class="header-btn" title="Browse collections">
+                    <!-- Collections temporarily hidden until DB-backed collections are added -->
+                    <a href="#collections" class="header-btn" title="Browse collections" style="display:none;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M4,6H20V8H4V6M4,11H20V13H4V11M4,16H20V18H4V16Z"/>
                         </svg>
@@ -190,8 +191,8 @@
             <div class="search-header">
                 <div class="terminal-command">
                     <div class="header-content">
-                        <h2 class="search-title"><span class="terminal-dot"></span><strong>Search </strong><span class="title-params">(components/settings/templates)</span></h2>
-                        <p class="search-subtitle">⎿ Build your personalized development stack</p>
+                        <h2 class="search-title"><span class="terminal-dot"></span><strong>Search prompts</strong></h2>
+                        <p class="search-subtitle">⎿ Find high‑quality prompts by category and tags</p>
                     </div>
                 </div>
             </div>
@@ -200,7 +201,7 @@
             <div class="terminal-search-container">
                 <div class="terminal-search-wrapper" onclick="focusSearchInput()">
                     <span class="terminal-prompt">></span>
-                    <input type="text" id="searchInput" class="terminal-search-input" placeholder="Search components..." oninput="handleSearchInput(event)" onkeydown="handleSearchKeydown(event)">
+                    <input type="text" id="searchInput" class="terminal-search-input" placeholder="Search prompts..." oninput="handleSearchInput(event)" onkeydown="handleSearchKeydown(event)">
                     <div class="terminal-cursor" id="terminalCursor"></div>
                     <svg class="search-icon-end" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5C16,5.91 13.09,3 9.5,3C5.91,3 3,5.91 3,9.5C3,13.09 5.91,16 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.49L20.49,19L15.5,14M9.5,14C7.01,14 5,11.99 5,9.5C5,7.01 7.01,5 9.5,5C11.99,5 14,7.01 14,9.5C14,11.99 11.99,14 9.5,14Z"/>
@@ -310,68 +311,7 @@
 
         
 
-        <section class="additional-tools">
-            <div class="command-block">
-                <div class="command-label">$ Additional Tools</div>
-                <div class="command-description">Advanced tools to maximize your Claude Code AI development experience</div>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">📊</div>
-                    <h3>Claude Code Analytics</h3>
-                    <p>Monitor your AI-powered development sessions in real-time. Track Claude Opus 4.1 performance, tool usage, and productivity metrics</p>
-                    <div class="command-line">
-                        <span class="prompt">$</span>
-                        <code class="command">npx claude-code-templates@latest --analytics</code>
-                        <button class="copy-btn" onclick="copyToClipboard('npx claude-code-templates@latest --analytics')">Copy</button>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">🔍</div>
-                    <h3>Claude Code Health Check</h3>
-                    <p>Comprehensive diagnostics to ensure your Anthropic Claude Code installation is optimized for deep coding at terminal velocity</p>
-                    <div class="command-line">
-                        <span class="prompt">$</span>
-                        <code class="command">npx claude-code-templates@latest --health-check</code>
-                        <button class="copy-btn" onclick="copyToClipboard('npx claude-code-templates@latest --health-check')">Copy</button>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">💬</div>
-                    <h3>Claude Conversation Monitor</h3>
-                    <p>View Claude Opus 4.1 responses in real-time, analyze AI reasoning, and monitor agentic search patterns during your coding sessions</p>
-                    <div class="command-line">
-                        <span class="prompt">$</span>
-                        <code class="command">npx claude-code-templates@latest --chats</code>
-                        <button class="copy-btn" onclick="copyToClipboard('npx claude-code-templates@latest --chats')">Copy</button>
-                    </div>
-                </div>
-                
-                <div class="tool-card e2b-highlight">
-                    <div class="tool-icon">☁️</div>
-                    <h3>E2B Cloud Sandbox</h3>
-                    <p>Execute Claude Code in isolated cloud environments with any agent or component. Perfect for testing complex projects without affecting your local system</p>
-                    <div class="env-setup">
-                        <div class="env-comment"># Add API keys to .env file:</div>
-                        <div class="env-vars">
-                            <code>E2B_API_KEY=your_e2b_key</code>
-                            <code>ANTHROPIC_API_KEY=your_anthropic_key</code>
-                        </div>
-                    </div>
-                    <div class="command-line">
-                        <span class="prompt">$</span>
-                        <code class="command">npx claude-code-templates@latest --sandbox e2b --agent=frontend-developer --prompt "Create a React app"</code>
-                        <button class="copy-btn" onclick="copyToClipboard('npx claude-code-templates@latest --sandbox e2b --agent=frontend-developer --prompt &quot;Create a React app&quot;')">Copy</button>
-                    </div>
-                    <div class="api-links">
-                        <a href="https://e2b.dev/dashboard" target="_blank" class="api-link">Get E2B Key</a>
-                        <a href="https://console.anthropic.com" target="_blank" class="api-link">Get Anthropic Key</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Legacy tools removed -->
     </main>
 
     <footer class="footer">
