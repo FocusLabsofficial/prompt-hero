@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Hero - Discover and Share the Best AI Prompts</title>
+    <meta name="description" content="The ultimate AI prompt repository. Discover, copy, and share high-quality prompts for ChatGPT, Claude, and other AI tools. Transform your AI workflow with community-curated prompts.">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Enhanced Modern Styles -->
+    <link rel="stylesheet" href="css/enhanced-modern.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prompthero.com/">
+    <meta property="og:title" content="Prompt Hero - Discover and Share the Best AI Prompts">
+    <meta property="og:description" content="The ultimate AI prompt repository. Discover, copy, and share high-quality prompts for ChatGPT, Claude, and other AI tools.">
+    <meta property="og:image" content="/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- SEO -->
+    <meta name="keywords" content="AI prompts, ChatGPT prompts, Claude prompts, prompt engineering, AI tools, prompt library, AI templates">
+    <meta name="author" content="Prompt Hero">
+    <link rel="canonical" href="https://prompthero.com/">
+</head>
+<body>
+    <!-- Enhanced Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span>Prompt Hero</span>
+                </a>
+                
+                <nav class="nav">
+                    <a href="#browse" class="nav-link active">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Browse
+                    </a>
+                    <a href="#trending" class="nav-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                        </svg>
+                        Trending
+                    </a>
+                    <a href="#submit" class="btn btn-primary btn-sm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        Submit Prompt
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Beautiful Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover the Best AI Prompts</h1>
+                <p class="hero-subtitle">
+                    Transform your AI workflow with curated, high-quality prompts for ChatGPT, Claude, and more. 
+                    Copy, share, and discover prompts that get results.
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSearch()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27A6.518 6.518 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                        Explore Prompts
+                    </button>
+                    <a href="#submit" class="btn btn-secondary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                        </svg>
+                        Submit Your Prompt
+                    </a>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="promptCount">1,200+</span>
+                        <span class="stat-label">Quality Prompts</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Copies Made</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2.5K+</span>
+                        <span class="stat-label">Community Members</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Search & Browse Section -->
+    <section class="search-section" id="browse">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find the Perfect Prompt</h2>
+                <p>Search through our curated collection or browse by category</p>
+            </div>
+            
+            <!-- Enhanced Search Input -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Search prompts..." 
+                        id="searchInput"
+                        autocomplete="off"
+                    >
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27A6.518 6.518 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Enhanced Filter Chips -->
+            <div class="filter-section">
+                <div class="filter-chips" id="filterChips">
+                    <button class="filter-chip active" data-category="all">
+                        <span class="filter-chip-icon">🌟</span>
+                        All Prompts
+                    </button>
+                    <button class="filter-chip" data-category="development">
+                        <span class="filter-chip-icon">💻</span>
+                        Development
+                    </button>
+                    <button class="filter-chip" data-category="creative">
+                        <span class="filter-chip-icon">🎨</span>
+                        Creative
+                    </button>
+                    <button class="filter-chip" data-category="business">
+                        <span class="filter-chip-icon">💼</span>
+                        Business
+                    </button>
+                    <button class="filter-chip" data-category="education">
+                        <span class="filter-chip-icon">📚</span>
+                        Education
+                    </button>
+                    <button class="filter-chip" data-category="research">
+                        <span class="filter-chip-icon">🔬</span>
+                        Research
+                    </button>
+                    <button class="filter-chip" data-category="technical">
+                        <span class="filter-chip-icon">⚙️</span>
+                        Technical
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Results Info -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-8); flex-wrap: wrap; gap: var(--space-4);" id="resultsInfo">
+                <p style="color: var(--text-secondary); margin: 0;">
+                    <span id="resultsCount">0</span> prompts found
+                </p>
+                <select style="padding: var(--space-2) var(--space-4); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-card); color: var(--text-primary);" id="sortSelect">
+                    <option value="newest">Newest First</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="alphabetical">A-Z</option>
+                </select>
+            </div>
+            
+            <!-- Enhanced Prompts Grid -->
+            <div class="prompts-grid" id="promptsGrid">
+                <!-- Loading state -->
+                <div class="prompt-card loading" style="grid-column: 1 / -1;">
+                    <div style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <div style="color: var(--text-secondary);">Loading amazing prompts...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Empty State -->
+            <div style="text-align: center; padding: var(--space-20) var(--space-8); color: var(--text-secondary); display: none;" id="emptyState">
+                <div style="font-size: 4rem; margin-bottom: var(--space-4); opacity: 0.5;">🔍</div>
+                <h3 style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-2); color: var(--text-primary);">No prompts found</h3>
+                <p style="max-width: 400px; margin: 0 auto;">
+                    Try adjusting your search terms or browse a different category.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notifications Container -->
+    <div id="toastContainer"></div>
+
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Enhanced Prompt Management System with Working Search
+        class EnhancedPromptApp {
+            constructor() {
+                this.prompts = [];
+                this.filteredPrompts = [];
+                this.filters = {
+                    category: 'all',
+                    search: '',
+                    sort: 'newest'
+                };
+                this.favorites = this.loadFavorites();
+                this.isLoading = false;
+                
+                this.init();
+            }
+            
+            async init() {
+                this.setupEventHandlers();
+                this.setupScrollEffects();
+                await this.loadPrompts();
+                this.updateStats();
+            }
+            
+            setupEventHandlers() {
+                // Enhanced search input with debouncing
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.addEventListener('input', this.debounce((e) => {
+                        this.filters.search = e.target.value.trim().toLowerCase();
+                        this.applyFilters();
+                    }, 300));
+                }
+
+                // Filter chips with enhanced animations
+                const filterChips = document.querySelectorAll('.filter-chip');
+                filterChips.forEach(chip => {
+                    chip.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const category = chip.dataset.category;
+                        this.setCategory(category);
+                    });
+                });
+
+                // Sort functionality
+                const sortSelect = document.getElementById('sortSelect');
+                if (sortSelect) {
+                    sortSelect.addEventListener('change', (e) => {
+                        this.filters.sort = e.target.value;
+                        this.applyFilters();
+                    });
+                }
+
+                // Global click handlers for prompt actions
+                document.addEventListener('click', this.handleGlobalClick.bind(this));
+
+                // Submit prompt form
+                this.setupSubmitForm();
+            }
+            
+            setupScrollEffects() {
+                const header = document.getElementById('header');
+                let lastScrollY = window.scrollY;
+                
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    
+                    if (currentScrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    
+                    lastScrollY = currentScrollY;
+                });
+            }
+
+            async loadPrompts() {
+                if (this.isLoading) return;
+                
+                this.isLoading = true;
+                this.showLoading(true);
+
+                try {
+                    // Try to load from API first, fallback to local data
+                    let data;
+                    try {
+                        const response = await fetch('/api/prompts?limit=100');
+                        if (response.ok) {
+                            data = await response.json();
+                            this.prompts = data.prompts || [];
+                        } else {
+                            throw new Error('API not available');
+                        }
+                    } catch (apiError) {
+                        console.log('API not available, loading demo data');
+                        // Load demo data for development
+                        this.prompts = this.getDemoPrompts();
+                    }
+                    
+                    this.applyFilters();
+                    this.updateStats();
+                    
+                } catch (error) {
+                    console.error('Failed to load prompts:', error);
+                    this.showError('Failed to load prompts. Please try again.');
+                } finally {
+                    this.isLoading = false;
+                    this.showLoading(false);
+                }
+            }
+            
+            getDemoPrompts() {
+                return [
+                    {
+                        id: 'demo-1',
+                        title: 'AI Code Review Assistant',
+                        description: 'Get comprehensive code reviews with AI assistance covering quality, performance, security, and best practices.',
+                        content: 'You are an expert code reviewer. Please review the following code for:\n\n1. **Code Quality**: Check for clean, readable, and maintainable code\n2. **Performance**: Identify potential performance bottlenecks\n3. **Security**: Look for security vulnerabilities\n4. **Best Practices**: Ensure adherence to language-specific best practices\n\nFor each issue found, provide:\n- Severity level (Critical, High, Medium, Low)\n- Specific line numbers or sections\n- Clear explanation of the issue\n- Suggested fix or improvement',
+                        category: 'development',
+                        tags: ['code-review', 'quality', 'security'],
+                        difficulty_level: 'intermediate',
+                        is_featured: true,
+                        average_rating: 4.8,
+                        total_ratings: 245,
+                        total_likes: 189,
+                        created_at: '2024-01-15T10:30:00Z'
+                    },
+                    {
+                        id: 'demo-2',
+                        title: 'Creative Writing Brainstorm',
+                        description: 'Generate creative story ideas, character development, and plot twists for your next writing project.',
+                        content: 'You are a creative writing mentor with years of experience in storytelling. Help me brainstorm ideas for my story by:\n\n1. **Story Concept**: Generate unique and engaging story premises\n2. **Character Development**: Create compelling characters with depth and motivation\n3. **Plot Structure**: Suggest interesting plot points and twists\n4. **Setting & Worldbuilding**: Develop rich, immersive environments\n5. **Dialogue**: Craft authentic character voices\n\nProvide specific, actionable suggestions that spark creativity.',
+                        category: 'creative',
+                        tags: ['writing', 'storytelling', 'brainstorm'],
+                        difficulty_level: 'beginner',
+                        is_featured: false,
+                        average_rating: 4.6,
+                        total_ratings: 178,
+                        total_likes: 156,
+                        created_at: '2024-01-14T15:45:00Z'
+                    },
+                    {
+                        id: 'demo-3',
+                        title: 'Business Strategy Analyzer',
+                        description: 'Analyze business strategies, market opportunities, and competitive landscapes with expert insights.',
+                        content: 'You are a strategic business consultant with expertise in market analysis and competitive intelligence. Analyze the following business scenario:\n\n**Analysis Framework:**\n1. **Market Opportunity**: Size, growth potential, and trends\n2. **Competitive Landscape**: Key players, strengths, weaknesses\n3. **SWOT Analysis**: Strengths, Weaknesses, Opportunities, Threats\n4. **Strategic Recommendations**: Actionable next steps\n5. **Risk Assessment**: Potential challenges and mitigation strategies\n\nProvide data-driven insights and practical recommendations.',
+                        category: 'business',
+                        tags: ['strategy', 'analysis', 'consulting'],
+                        difficulty_level: 'advanced',
+                        is_featured: true,
+                        average_rating: 4.9,
+                        total_ratings: 312,
+                        total_likes: 278,
+                        created_at: '2024-01-13T09:20:00Z'
+                    },
+                    {
+                        id: 'demo-4',
+                        title: 'Learning Plan Creator',
+                        description: 'Create personalized learning plans for any topic with structured milestones and resources.',
+                        content: 'You are an educational expert and learning specialist. Create a comprehensive learning plan for:\n\n**Learning Plan Structure:**\n1. **Prerequisites**: What knowledge is needed to start\n2. **Learning Objectives**: Clear, measurable goals\n3. **Study Schedule**: Weekly breakdown with time estimates\n4. **Resources**: Books, courses, videos, practice materials\n5. **Milestones**: Checkpoints to measure progress\n6. **Assessment**: How to evaluate understanding\n\nMake the plan practical, achievable, and engaging.',
+                        category: 'education',
+                        tags: ['learning', 'education', 'planning'],
+                        difficulty_level: 'intermediate',
+                        is_featured: false,
+                        average_rating: 4.7,
+                        total_ratings: 203,
+                        total_likes: 167,
+                        created_at: '2024-01-12T14:10:00Z'
+                    },
+                    {
+                        id: 'demo-5',
+                        title: 'Research Paper Assistant',
+                        description: 'Help structure, outline, and improve academic research papers with proper methodology.',
+                        content: 'You are an academic research specialist with expertise in scholarly writing and methodology. Help me with my research paper:\n\n**Research Assistance Areas:**\n1. **Topic Refinement**: Narrow down and focus the research question\n2. **Literature Review**: Identify key sources and themes\n3. **Methodology**: Choose appropriate research methods\n4. **Structure**: Organize sections and arguments logically\n5. **Citations**: Ensure proper academic formatting\n6. **Analysis**: Strengthen arguments and evidence\n\nProvide specific, actionable feedback to improve the paper\'s quality.',
+                        category: 'research',
+                        tags: ['academic', 'research', 'writing'],
+                        difficulty_level: 'advanced',
+                        is_featured: false,
+                        average_rating: 4.5,
+                        total_ratings: 156,
+                        total_likes: 134,
+                        created_at: '2024-01-11T11:30:00Z'
+                    },
+                    {
+                        id: 'demo-6',
+                        title: 'Technical Documentation Writer',
+                        description: 'Create clear, comprehensive technical documentation for APIs, software, and systems.',
+                        content: 'You are a technical writing expert specializing in developer documentation. Help me create comprehensive technical documentation:\n\n**Documentation Structure:**\n1. **Overview**: Clear introduction and purpose\n2. **Getting Started**: Installation and setup instructions\n3. **API Reference**: Endpoints, parameters, examples\n4. **Code Examples**: Working code snippets in multiple languages\n5. **Troubleshooting**: Common issues and solutions\n6. **Best Practices**: Recommended usage patterns\n\nEnsure the documentation is clear, accurate, and developer-friendly.',
+                        category: 'technical',
+                        tags: ['documentation', 'api', 'technical-writing'],
+                        difficulty_level: 'intermediate',
+                        is_featured: false,
+                        average_rating: 4.4,
+                        total_ratings: 189,
+                        total_likes: 145,
+                        created_at: '2024-01-10T16:20:00Z'
+                    }
+                ];
+            }
+
+            setCategory(category) {
+                // Update active filter chip with animation
+                document.querySelectorAll('.filter-chip').forEach(chip => {
+                    chip.classList.toggle('active', chip.dataset.category === category);
+                });
+
+                this.filters.category = category;
+                this.applyFilters();
+            }
+
+            applyFilters() {
+                this.filteredPrompts = this.prompts.filter(prompt => {
+                    // Category filter
+                    if (this.filters.category !== 'all' && prompt.category !== this.filters.category) {
+                        return false;
+                    }
+                    
+                    // Search filter
+                    if (this.filters.search) {
+                        const searchText = `${prompt.title} ${prompt.description} ${prompt.content}`.toLowerCase();
+                        if (!searchText.includes(this.filters.search)) {
+                            return false;
+                        }
+                    }
+                    
+                    return true;
+                });
+
+                this.sortPrompts();
+                this.renderPrompts();
+                this.updateResultsInfo();
+            }
+            
+            sortPrompts() {
+                this.filteredPrompts.sort((a, b) => {
+                    switch (this.filters.sort) {
+                        case 'popular':
+                            return (b.total_likes || 0) - (a.total_likes || 0);
+                        case 'rating':
+                            return (b.average_rating || 0) - (a.average_rating || 0);
+                        case 'alphabetical':
+                            return a.title.localeCompare(b.title);
+                        default: // newest
+                            return new Date(b.created_at || 0) - new Date(a.created_at || 0);
+                    }
+                });
+            }
+
+            renderPrompts() {
+                const grid = document.getElementById('promptsGrid');
+                const emptyState = document.getElementById('emptyState');
+
+                if (!grid) return;
+
+                if (this.filteredPrompts.length === 0 && !this.isLoading) {
+                    grid.style.display = 'none';
+                    if (emptyState) emptyState.style.display = 'block';
+                    return;
+                }
+
+                grid.style.display = 'grid';
+                if (emptyState) emptyState.style.display = 'none';
+
+                grid.innerHTML = this.filteredPrompts.map(prompt => this.createPromptCard(prompt)).join('');
+            }
+
+            createPromptCard(prompt) {
+                const isFavorited = this.favorites.includes(prompt.id);
+                const stars = this.generateStars(prompt.average_rating || 0);
+                
+                return `
+                    <div class="prompt-card" data-prompt-id="${prompt.id}">
+                        <div class="prompt-card-header">
+                            <div class="prompt-meta">
+                                <span class="badge badge-primary">${this.escapeHtml(prompt.category)}</span>
+                                ${prompt.is_featured ? '<span class="badge badge-warning">Featured</span>' : ''}
+                                ${prompt.difficulty_level ? `<span class="badge badge-secondary">${prompt.difficulty_level}</span>` : ''}
+                            </div>
+                            <div class="rating interactive">
+                                <div class="stars">${stars}</div>
+                                <span class="rating-count">(${prompt.total_ratings || 0})</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="prompt-title">${this.escapeHtml(prompt.title)}</h3>
+                        <p class="prompt-description">${this.escapeHtml(prompt.description || '')}</p>
+                        
+                        ${prompt.tags && prompt.tags.length > 0 ? `
+                            <div class="prompt-tags">
+                                ${prompt.tags.slice(0, 3).map(tag => `<span class="tag">${this.escapeHtml(tag)}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        <div class="prompt-actions">
+                            <button class="copy-button" data-action="copy">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                </svg>
+                                Copy Prompt
+                            </button>
+                            
+                            <div class="action-buttons">
+                                <button class="action-btn favorite-btn ${isFavorited ? 'favorited' : ''}" 
+                                        data-action="favorite" 
+                                        title="${isFavorited ? 'Remove from favorites' : 'Add to favorites'}">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    </svg>
+                                </button>
+                                
+                                <button class="action-btn share-btn" data-action="share" title="Share prompt">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            generateStars(rating) {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                
+                let stars = '';
+                
+                // Full stars
+                for (let i = 0; i < fullStars; i++) {
+                    stars += '<span class="star filled">★</span>';
+                }
+                
+                // Half star
+                if (hasHalfStar) {
+                    stars += '<span class="star filled">★</span>';
+                }
+                
+                // Empty stars
+                for (let i = 0; i < emptyStars; i++) {
+                    stars += '<span class="star">★</span>';
+                }
+                
+                return stars;
+            }
+
+            async handleGlobalClick(e) {
+                const action = e.target.dataset.action || e.target.closest('[data-action]')?.dataset.action;
+                if (!action) return;
+
+                const promptCard = e.target.closest('.prompt-card');
+                if (!promptCard) return;
+
+                const promptId = promptCard.dataset.promptId;
+                
+                switch (action) {
+                    case 'copy':
+                        await this.copyPrompt(promptId);
+                        break;
+                    case 'favorite':
+                        this.toggleFavorite(promptId);
+                        break;
+                    case 'share':
+                        this.sharePrompt(promptId);
+                        break;
+                }
+            }
+
+            async copyPrompt(promptId) {
+                const prompt = this.prompts.find(p => p.id === promptId);
+                if (!prompt) return;
+
+                try {
+                    await navigator.clipboard.writeText(prompt.content);
+                    
+                    // Enhanced visual feedback
+                    const button = document.querySelector(`[data-prompt-id="${promptId}"] .copy-button`);
+                    if (button) {
+                        const originalHTML = button.innerHTML;
+                        
+                        button.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                            Copied!
+                        `;
+                        button.classList.add('copied');
+                        
+                        setTimeout(() => {
+                            button.innerHTML = originalHTML;
+                            button.classList.remove('copied');
+                        }, 2000);
+                    }
+                    
+                    this.showToast('Prompt copied to clipboard!', 'success');
+                    
+                } catch (error) {
+                    console.error('Failed to copy prompt:', error);
+                    this.showToast('Failed to copy prompt', 'error');
+                }
+            }
+
+            toggleFavorite(promptId) {
+                const index = this.favorites.indexOf(promptId);
+                
+                if (index > -1) {
+                    this.favorites.splice(index, 1);
+                } else {
+                    this.favorites.push(promptId);
+                }
+                
+                this.saveFavorites();
+                
+                // Update UI with animation
+                const button = document.querySelector(`[data-prompt-id="${promptId}"] .favorite-btn`);
+                if (button) {
+                    button.classList.toggle('favorited');
+                    button.title = index > -1 ? 'Add to favorites' : 'Remove from favorites';
+                }
+                
+                const message = index > -1 ? 'Removed from favorites' : 'Added to favorites';
+                this.showToast(message, 'success');
+            }
+
+            sharePrompt(promptId) {
+                const prompt = this.prompts.find(p => p.id === promptId);
+                if (!prompt) return;
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: prompt.title,
+                        text: prompt.description,
+                        url: `${window.location.origin}/?prompt=${promptId}`
+                    }).catch(console.error);
+                } else {
+                    // Fallback: copy URL to clipboard
+                    const url = `${window.location.origin}/?prompt=${promptId}`;
+                    navigator.clipboard.writeText(url).then(() => {
+                        this.showToast('Prompt URL copied to clipboard!', 'success');
+                    }).catch(() => {
+                        this.showToast('Failed to copy URL', 'error');
+                    });
+                }
+            }
+
+            setupSubmitForm() {
+                // Create submit prompt modal (simplified for demo)
+                document.querySelectorAll('a[href="#submit"], button[onclick*="submit"]').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showToast('Submit feature coming soon! For now, enjoy browsing our curated prompts.', 'info');
+                    });
+                });
+            }
+
+            updateStats() {
+                const promptCount = document.getElementById('promptCount');
+                if (promptCount && this.prompts.length > 0) {
+                    promptCount.textContent = `${this.prompts.length.toLocaleString()}+`;
+                }
+            }
+
+            updateResultsInfo() {
+                const resultsInfo = document.getElementById('resultsInfo');
+                const resultsCount = document.getElementById('resultsCount');
+                
+                if (!resultsInfo || !resultsCount) return;
+
+                if (this.filters.search || this.filters.category !== 'all') {
+                    resultsInfo.style.display = 'flex';
+                    resultsCount.textContent = this.filteredPrompts.length;
+                } else {
+                    resultsInfo.style.display = 'none';
+                }
+            }
+
+            showLoading(show) {
+                const grid = document.getElementById('promptsGrid');
+                if (!grid) return;
+
+                if (show) {
+                    grid.innerHTML = `
+                        <div class="prompt-card loading" style="grid-column: 1 / -1;">
+                            <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+                                <div style="text-align: center;">
+                                    <div style="margin-bottom: 1rem; font-size: 2rem;">⚡</div>
+                                    Loading amazing prompts...
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            showError(message) {
+                const grid = document.getElementById('promptsGrid');
+                if (grid) {
+                    grid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-secondary);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
+                            <div>${message}</div>
+                            <button onclick="window.promptApp.loadPrompts()" style="margin-top: 1rem;" class="btn btn-primary">
+                                Try Again
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+
+            showToast(message, type = 'info') {
+                const container = document.getElementById('toastContainer') || this.createToastContainer();
+                
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                
+                const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+                
+                toast.innerHTML = `
+                    <div class="toast-icon">${icon}</div>
+                    <div class="toast-content">
+                        <div class="toast-title">${message}</div>
+                    </div>
+                    <button class="toast-close">×</button>
+                `;
+                
+                container.appendChild(toast);
+                
+                // Show toast with animation
+                requestAnimationFrame(() => toast.classList.add('show'));
+                
+                // Auto-hide
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                }, 4000);
+                
+                // Close button
+                toast.querySelector('.toast-close').addEventListener('click', () => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                });
+            }
+
+            createToastContainer() {
+                const container = document.createElement('div');
+                container.id = 'toastContainer';
+                document.body.appendChild(container);
+                return container;
+            }
+
+            loadFavorites() {
+                try {
+                    return JSON.parse(localStorage.getItem('prompthero_favorites') || '[]');
+                } catch {
+                    return [];
+                }
+            }
+
+            saveFavorites() {
+                try {
+                    localStorage.setItem('prompthero_favorites', JSON.stringify(this.favorites));
+                } catch (error) {
+                    console.error('Failed to save favorites:', error);
+                }
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text || '';
+                return div.innerHTML;
+            }
+
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        }
+
+        // Utility functions
+        function scrollToSearch() {
+            const element = document.getElementById('browse');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize the enhanced application
+        document.addEventListener('DOMContentLoaded', () => {
+            window.promptApp = new EnhancedPromptApp();
+        });
+    </script>
+</body>
+</html>
