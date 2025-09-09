@@ -227,13 +227,39 @@
             }
             
             setupEventHandlers() {
-                // Enhanced search input with debouncing
+                // Enhanced search input with debouncing and live feedback
                 const searchInput = document.getElementById('searchInput');
                 if (searchInput) {
-                    searchInput.addEventListener('input', this.debounce((e) => {
-                        this.filters.search = e.target.value.trim().toLowerCase();
+                    searchInput.addEventListener('input', (e) => {
+                        const query = e.target.value.trim();
+                        
+                        // Immediate visual feedback
+                        if (query.length > 0) {
+                            searchInput.style.borderColor = 'var(--primary)';
+                            searchInput.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.1)';
+                        } else {
+                            searchInput.style.borderColor = 'var(--border-primary)';
+                            searchInput.style.boxShadow = 'none';
+                        }
+                        
+                        // Debounced search
+                        this.debouncedSearch(query);
+                    });
+                    
+                    // Enhanced search with highlighting
+                    this.debouncedSearch = this.debounce((query) => {
+                        this.filters.search = query.toLowerCase();
                         this.applyFilters();
-                    }, 300));
+                        
+                        // Update search results info
+                        const resultsInfo = document.getElementById('resultsInfo');
+                        if (query.length > 0) {
+                            resultsInfo.style.display = 'flex';
+                            this.showSearchStats(query);
+                        } else {
+                            resultsInfo.style.display = 'none';
+                        }
+                    }, 200);
                 }
 
                 // Filter chips with enhanced animations
@@ -649,13 +675,143 @@
             }
 
             setupSubmitForm() {
-                // Create submit prompt modal (simplified for demo)
-                document.querySelectorAll('a[href="#submit"], button[onclick*="submit"]').forEach(el => {
+                // Create submit prompt modal HTML
+                const modalHTML = `
+                    <div class="modal-overlay" id="submitModal" style="display: none;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Submit a New Prompt</h3>
+                                <button class="modal-close" onclick="this.closest('.modal-overlay').style.display='none'">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <form class="submit-form" id="submitForm">
+                                <div class="form-group">
+                                    <label for="promptTitle">Title *</label>
+                                    <input type="text" id="promptTitle" name="title" required maxlength="255" 
+                                           placeholder="Enter a clear, descriptive title">
+                                    <div class="form-help">Be specific and descriptive</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="promptContent">Prompt Content *</label>
+                                    <textarea id="promptContent" name="content" required maxlength="10000" rows="8"
+                                              placeholder="Write your prompt here. Be clear about what you want the AI to do..."></textarea>
+                                    <div class="form-help">This is the actual prompt text that users will copy</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="promptDescription">Description</label>
+                                    <textarea id="promptDescription" name="description" maxlength="500" rows="3"
+                                              placeholder="Brief description of what this prompt does (optional)"></textarea>
+                                    <div class="form-help">Help others understand when to use this prompt</div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="promptCategory">Category *</label>
+                                        <select id="promptCategory" name="category" required>
+                                            <option value="">Select a category</option>
+                                            <option value="development">Development</option>
+                                            <option value="creative">Creative</option>
+                                            <option value="business">Business</option>
+                                            <option value="education">Education</option>
+                                            <option value="research">Research</option>
+                                            <option value="technical">Technical</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="promptDifficulty">Difficulty Level</label>
+                                        <select id="promptDifficulty" name="difficulty_level">
+                                            <option value="beginner">Beginner</option>
+                                            <option value="intermediate" selected>Intermediate</option>
+                                            <option value="advanced">Advanced</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="promptTags">Tags</label>
+                                    <input type="text" id="promptTags" name="tags" 
+                                           placeholder="Enter tags separated by commas (e.g., ai, coding, productivity)">
+                                    <div class="form-help">Use relevant keywords to help others find your prompt</div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('submitModal').style.display='none'">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit Prompt
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                `;
+
+                // Add modal to page
+                document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+                // Handle form submission
+                document.getElementById('submitForm').addEventListener('submit', this.handleSubmitForm.bind(this));
+
+                // Handle submit button clicks
+                document.querySelectorAll('a[href="#submit"], .btn[href="#submit"]').forEach(el => {
                     el.addEventListener('click', (e) => {
                         e.preventDefault();
-                        this.showToast('Submit feature coming soon! For now, enjoy browsing our curated prompts.', 'info');
+                        document.getElementById('submitModal').style.display = 'flex';
                     });
                 });
+            }
+
+            async handleSubmitForm(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Parse tags
+                if (data.tags) {
+                    data.tags = data.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+                }
+
+                // Add demo prompt to the list
+                const newPrompt = {
+                    id: `user-${Date.now()}`,
+                    title: data.title,
+                    description: data.description || '',
+                    content: data.content,
+                    category: data.category,
+                    tags: data.tags || [],
+                    difficulty_level: data.difficulty_level,
+                    is_featured: false,
+                    average_rating: 0,
+                    total_ratings: 0,
+                    total_likes: 0,
+                    created_at: new Date().toISOString()
+                };
+
+                // Add to prompts array
+                this.prompts.unshift(newPrompt);
+                this.applyFilters();
+                
+                this.showToast('Prompt submitted successfully!', 'success');
+                document.getElementById('submitModal').style.display = 'none';
+                e.target.reset();
+                
+                // Scroll to the new prompt
+                setTimeout(() => {
+                    const newCard = document.querySelector(`[data-prompt-id="${newPrompt.id}"]`);
+                    if (newCard) {
+                        newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        newCard.style.animation = 'pulse 2s ease-in-out';
+                    }
+                }, 300);
             }
 
             updateStats() {
@@ -676,6 +832,22 @@
                     resultsCount.textContent = this.filteredPrompts.length;
                 } else {
                     resultsInfo.style.display = 'none';
+                }
+            }
+
+            showSearchStats(query) {
+                const resultsCount = document.getElementById('resultsCount');
+                if (resultsCount) {
+                    const count = this.filteredPrompts.length;
+                    const plural = count === 1 ? 'prompt' : 'prompts';
+                    resultsCount.textContent = `${count} ${plural}`;
+                    
+                    // Add search term highlighting
+                    if (count === 0) {
+                        resultsCount.style.color = 'var(--error)';
+                    } else {
+                        resultsCount.style.color = 'var(--primary)';
+                    }
                 }
             }
 
