@@ -28,464 +28,778 @@
     <meta name="keywords" content="AI prompts, ChatGPT prompts, Claude prompts, prompt engineering, AI tools, prompt library, AI templates">
     <meta name="author" content="Prompt Hero">
     <link rel="canonical" href="https://prompthero.com/">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Prompt Hero",
-      "applicationCategory": "AI Tools",
-      "description": "The ultimate repository for AI prompts. Discover high-quality prompts across categories, rate and review them, and share your own. Transform your AI workflow with the best prompts from the community.",
-      "operatingSystem": ["Windows", "macOS", "Linux", "iOS", "Android"],
-      "softwareVersion": "1.0.0",
-      "url": "https://prompthero.com/",
-      "author": {
-        "@type": "Organization",
-        "name": "Prompt Hero Community"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "keywords": "AI prompts, prompt engineering, ChatGPT prompts, Claude prompts, AI templates, prompt repository, AI tools, machine learning prompts"
-    }
-    </script>
 </head>
 <body>
-    <header class="header">
+    <!-- Enhanced Header -->
+    <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <div class="terminal-header">
-            <div class="ascii-title">
-                <pre class="ascii-art">██████╗ ██████╗  ██████╗ ███╗   ███╗██████╗ ████████╗    ██╗  ██╗███████╗██████╗  ██████╗ 
-██╔══██╗██╔══██╗██╔═══██╗████╗ ████║██╔══██╗╚══██╔══╝    ██║  ██║██╔════╝██╔══██╗██╔═══██╗
-██████╔╝██████╔╝██║   ██║██╔████╔██║██████╔╝   ██║       ███████║█████╗  ██████╔╝██║   ██║
-██╔═══╝ ██╔══██╗██║   ██║██║╚██╔╝██║██╔═══╝    ██║       ██╔══██║██╔══╝  ██╔══██╗██║   ██║
-██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║██║       ██║       ██║  ██║███████╗██║  ██║╚██████╔╝
-╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝       ╚═╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ </pre>
-            </div>
-            <div class="terminal-subtitle">
-                <span class="status-dot"></span>
-                Discover, rate, and share the best <strong>AI prompts</strong> from the community
-            </div>
-        </div>
-                <div class="header-actions">
-                    <!-- Workflows button temporarily hidden for testing -->
-                    <!-- 
-                    <a href="workflows.html" class="header-btn">
+                <a href="/" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span>Prompt Hero</span>
+                </a>
+                
+                <nav class="nav">
+                    <a href="#browse" class="nav-link active">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H16L12,22L8,18H4A2,2 0 0,1 2,16V4A2,2 0 0,1 4,2M4,4V16H8.83L12,19.17L15.17,16H20V4H4M6,6H18V8H6V6M6,10H16V12H6V10M6,14H14V16H6V14Z"/>
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
-                        Workflows
+                        Browse
                     </a>
-                    -->
-                    <a href="#submit" class="header-btn" title="Submit a new prompt">
+                    <a href="#trending" class="nav-link">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
-                        </svg>
-                        Submit Prompt
-                    </a>
-                    <!-- Collections temporarily hidden until DB-backed collections are added -->
-                    <a href="#collections" class="header-btn" title="Browse collections" style="display:none;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4,6H20V8H4V6M4,11H20V13H4V11M4,16H20V18H4V16Z"/>
-                        </svg>
-                        Collections
-                    </a>
-                    <a href="#trending" class="header-btn" title="Trending prompts">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/>
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
                         </svg>
                         Trending
                     </a>
-                    <a href="https://github.com/prompthero/prompthero" target="_blank" class="header-btn">
+                    <a href="#submit" class="btn btn-primary btn-sm">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                         </svg>
-                        GitHub
+                        Submit Prompt
                     </a>
-                </div>
+                </nav>
             </div>
         </div>
     </header>
 
-    <main class="terminal">
-        <!-- Stats removed: legacy badges -->
-        
-        <section class="steps-section">
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Discover & Search</h3>
-                        <p>Find high‑quality prompts by category and keywords.</p>
-                        <div class="step-highlight">
-                            <span class="highlight-text">🔍 Use filters and search to narrow results</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Copy & Use</h3>
-                        <p>One‑click copy to paste into your AI tool of choice.</p>
-                        <div class="step-highlight">
-                            <span class="highlight-text">📋 Copy prompt text directly from the card</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Submit & Rate</h3>
-                        <p>Share your prompts with the community and leave reviews.</p>
-                        <div class="step-highlight">
-                            <span class="highlight-text">⭐ Help others by rating and reviewing prompts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="unified-filter-section">
-            <!-- Search Section Header -->
-            <div class="search-header">
-                <div class="terminal-command">
-                    <div class="header-content">
-                        <h2 class="search-title"><span class="terminal-dot"></span><strong>Search prompts</strong></h2>
-                        <p class="search-subtitle">⎿ Find high-quality prompts by category and tags</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Terminal Search Input - Main Component -->
-            <div class="terminal-search-container">
-                <div class="terminal-search-wrapper" onclick="focusSearchInput()">
-                    <span class="terminal-prompt">></span>
-                    <input type="text" id="searchInput" class="terminal-search-input" placeholder="Search prompts..." oninput="handleSearchInput(event)" onkeydown="handleSearchKeydown(event)">
-                    <div class="terminal-cursor" id="terminalCursor"></div>
-                    <svg class="search-icon-end" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5C16,5.91 13.09,3 9.5,3C5.91,3 3,5.91 3,9.5C3,13.09 5.91,16 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.49L20.49,19L15.5,14M9.5,14C7.01,14 5,11.99 5,9.5C5,7.01 7.01,5 9.5,5C11.99,5 14,7.01 14,9.5C14,11.99 11.99,14 9.5,14Z"/>
-                    </svg>
-                    <button class="terminal-clear-btn" id="clearSearchBtn" onclick="clearSearch()" style="display: none;" title="Clear search">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
-                        </svg>
-                    </button>
-                </div>
-                
-                <!-- Search results info and tags -->
-                <div class="search-results-info" id="searchResultsInfo" style="display: none;">
-                    <div class="terminal-results">
-                        <span class="terminal-dot"></span>
-                        <div class="results-content">
-                            <div class="results-count" id="resultsCount">Found(0 results)</div>
-                            <div class="search-filters">⎿ <span class="search-filter-tags" id="searchFilterTags"></span></div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <!-- Prompt Category Filters -->
-            <div class="prompt-category-filters">
-                <div class="filter-group">
-                    <div class="filter-chips">
-                        <button class="filter-chip active" data-filter="all" onclick="setPromptFilter('all')">
-                            <span class="chip-icon">🌟</span>All Prompts
-                        </button>
-                        <button class="filter-chip" data-filter="development" onclick="setPromptFilter('development')">
-                            <span class="chip-icon">💻</span>Development
-                        </button>
-                        <button class="filter-chip" data-filter="creative" onclick="setPromptFilter('creative')">
-                            <span class="chip-icon">🎨</span>Creative
-                        </button>
-                        <button class="filter-chip" data-filter="business" onclick="setPromptFilter('business')">
-                            <span class="chip-icon">💼</span>Business
-                        </button>
-                        <button class="filter-chip" data-filter="education" onclick="setPromptFilter('education')">
-                            <span class="chip-icon">📚</span>Education
-                        </button>
-                        <button class="filter-chip" data-filter="research" onclick="setPromptFilter('research')">
-                            <span class="chip-icon">🔬</span>Research
-                        </button>
-                        <button class="filter-chip" data-filter="technical" onclick="setPromptFilter('technical')">
-                            <span class="chip-icon">⚙️</span>Technical
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Filters -->
-            <div class="additional-filters">
-                <div class="filter-group">
-                    <div class="filter-chips">
-                        <button class="filter-chip" data-filter="featured" onclick="setPromptFilter('featured')">
-                            <span class="chip-icon">⭐</span>Featured
-                        </button>
-                        <button class="filter-chip" data-filter="trending" onclick="setPromptFilter('trending')">
-                            <span class="chip-icon">🔥</span>Trending
-                        </button>
-                        <button class="filter-chip" data-filter="beginner" onclick="setPromptFilter('beginner')">
-                            <span class="chip-icon">🟢</span>Beginner
-                        </button>
-                        <button class="filter-chip" data-filter="intermediate" onclick="setPromptFilter('intermediate')">
-                            <span class="chip-icon">🟡</span>Intermediate
-                        </button>
-                        <button class="filter-chip" data-filter="advanced" onclick="setPromptFilter('advanced')">
-                            <span class="chip-icon">🔴</span>Advanced
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Component Categories (will be populated dynamically) -->
-            <div class="component-categories" id="componentCategories" style="display: none;">
-                <div class="category-group">
-                    <span class="category-group-label">category:</span>
-                    <div class="category-chips" id="categoryChips">
-                        <!-- Categories will be populated by JavaScript based on selected type -->
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="content-grid" id="contentGrid">
-            <!-- Loading indicator -->
-            <div class="loading-indicator" id="components-loading" style="display: none;">
-                <div class="loading-spinner"></div>
-                <div class="loading-text">
-                    <h3>Loading Components...</h3>
-                    <p>Optimizing data for better performance on mobile devices</p>
-                    <div class="loading-progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Content container -->
-            <div class="unified-grid" id="unifiedGrid" id="components-content">
-                <!-- All content will be loaded here by JavaScript -->
-            </div>
-        </section>
-
-        
-
-        <!-- Legacy tools removed -->
-    </main>
-
-    <footer class="footer">
+    <!-- Beautiful Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-ascii">
-                        <pre class="footer-ascii-art"> █████╗ ██╗████████╗███╗   ███╗██████╗ ██╗     
-██╔══██╗██║╚══██╔══╝████╗ ████║██╔══██╗██║     
-███████║██║   ██║   ██╔████╔██║██████╔╝██║     
-██╔══██║██║   ██║   ██║╚██╔╝██║██╔═══╝ ██║     
-██║  ██║██║   ██║   ██║ ╚═╝ ██║██║     ███████╗
-╚═╝  ╚═╝╚═╝   ╚═╝   ╚═╝     ╚═╝╚═╝     ╚══════╝</pre>
-                        <p class="footer-tagline">Supercharge Anthropic's Claude Code</p>
-                    </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Discover the Best AI Prompts</h1>
+                <p class="hero-subtitle">
+                    Transform your AI workflow with curated, high-quality prompts for ChatGPT, Claude, and more. 
+                    Copy, share, and discover prompts that get results.
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSearch()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27A6.518 6.518 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                        Explore Prompts
+                    </button>
+                    <a href="#submit" class="btn btn-secondary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                        </svg>
+                        Submit Your Prompt
+                    </a>
                 </div>
                 
-                <div class="footer-right">
-                    <p class="footer-copyright">&copy; 2025 Claude Code Templates. Open source project.</p>
-                    <div class="footer-links">
-                        <a href="trending.html" class="footer-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z"/>
-                            </svg>
-                            Trending
-                        </a>
-                        <a href="https://docs.aitmpl.com/" target="_blank" class="footer-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                            </svg>
-                            Documentation
-                        </a>
-                        <a href="https://github.com/davila7/claude-code-templates" target="_blank" class="footer-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            GitHub
-                        </a>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="promptCount">1,200+</span>
+                        <span class="stat-label">Quality Prompts</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Copies Made</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2.5K+</span>
+                        <span class="stat-label">Community Members</span>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Shopping Cart Sidebar -->
-    <div id="shoppingCart" class="cart-sidebar">
-        <div class="cart-content">
-            <div class="cart-header">
-                <div class="cart-header-main">
-                    <h3>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M7 18c-1.1 0-2 0.9-2 2s0.9 2 2 2 2-0.9 2-2-0.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-0.16 0.27-0.25 0.58-0.25 0.96 0 1.1 0.9 2 2 2h12v-2H7.42c-0.14 0-0.25-0.11-0.25-0.25l0.03-0.12L8.1 13h7.45c0.75 0 1.41-0.41 1.75-1.03L21.7 4H5.21l-0.94-2H1zM17 18c-1.1 0-2 0.9-2 2s0.9 2 2 2 2-0.9 2-2-0.9-2-2-2z"/>
-                        </svg>
-                        Stack Builder
-                    </h3>
-                    <button class="cart-close" onclick="closeCart()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
-                        </svg>
-                    </button>
+    <!-- Enhanced Search & Browse Section -->
+    <section class="search-section" id="browse">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find the Perfect Prompt</h2>
+                <p>Search through our curated collection or browse by category</p>
+            </div>
+            
+            <!-- Enhanced Search Input -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        placeholder="Search prompts..." 
+                        id="searchInput"
+                        autocomplete="off"
+                    >
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27A6.518 6.518 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
                 </div>
-                
-                <!-- Clear All Button - Subtle position -->
-                <div class="cart-clear-section-prominent" id="cartClearProminent" style="display: none;">
-                    <button class="clear-all-btn-prominent" onclick="clearCart()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"/>
-                        </svg>
-                        Clear All
-                        <span class="clear-count" id="clearCount">(0)</span>
+            </div>
+            
+            <!-- Enhanced Filter Chips -->
+            <div class="filter-section">
+                <div class="filter-chips" id="filterChips">
+                    <button class="filter-chip active" data-category="all">
+                        <span class="filter-chip-icon">🌟</span>
+                        All Prompts
+                    </button>
+                    <button class="filter-chip" data-category="development">
+                        <span class="filter-chip-icon">💻</span>
+                        Development
+                    </button>
+                    <button class="filter-chip" data-category="creative">
+                        <span class="filter-chip-icon">🎨</span>
+                        Creative
+                    </button>
+                    <button class="filter-chip" data-category="business">
+                        <span class="filter-chip-icon">💼</span>
+                        Business
+                    </button>
+                    <button class="filter-chip" data-category="education">
+                        <span class="filter-chip-icon">📚</span>
+                        Education
+                    </button>
+                    <button class="filter-chip" data-category="research">
+                        <span class="filter-chip-icon">🔬</span>
+                        Research
+                    </button>
+                    <button class="filter-chip" data-category="technical">
+                        <span class="filter-chip-icon">⚙️</span>
+                        Technical
                     </button>
                 </div>
             </div>
             
-            <div class="cart-body">
-                <div class="cart-empty" id="cartEmpty">
-                    <div class="empty-cart-icon">🛒</div>
-                    <p>Your stack is empty</p>
-                    <small>Add agents, commands, settings, hooks, or MCPs to build your development stack</small>
-                </div>
-                
-                <div class="cart-items" id="cartItems" style="display: none;">
-                    
-                    <div class="cart-section">
-                        <h4>
-                            <span class="section-icon">🤖</span>
-                            Agents (<span id="agentsCount">0</span>)
-                        </h4>
-                        <div class="cart-section-items" id="agentsList"></div>
-                    </div>
-                    
-                    <div class="cart-section">
-                        <h4>
-                            <span class="section-icon">⚡</span>
-                            Commands (<span id="commandsCount">0</span>)
-                        </h4>
-                        <div class="cart-section-items" id="commandsList"></div>
-                    </div>
-                    
-                    <div class="cart-section">
-                        <h4>
-                            <span class="section-icon">⚙️</span>
-                            Settings (<span id="settingsCount">0</span>)
-                        </h4>
-                        <div class="cart-section-items" id="settingsList"></div>
-                    </div>
-                    
-                    <div class="cart-section">
-                        <h4>
-                            <span class="section-icon">🪝</span>
-                            Hooks (<span id="hooksCount">0</span>)
-                        </h4>
-                        <div class="cart-section-items" id="hooksList"></div>
-                    </div>
-                    
-                    <div class="cart-section">
-                        <h4>
-                            <span class="section-icon">🔌</span>
-                            MCPs (<span id="mcpsCount">0</span>)
-                        </h4>
-                        <div class="cart-section-items" id="mcpsList"></div>
+            <!-- Results Info -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-8); flex-wrap: wrap; gap: var(--space-4);" id="resultsInfo">
+                <p style="color: var(--text-secondary); margin: 0;">
+                    <span id="resultsCount">0</span> prompts found
+                </p>
+                <select style="padding: var(--space-2) var(--space-4); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); background: var(--bg-card); color: var(--text-primary);" id="sortSelect">
+                    <option value="newest">Newest First</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="alphabetical">A-Z</option>
+                </select>
+            </div>
+            
+            <!-- Enhanced Prompts Grid -->
+            <div class="prompts-grid" id="promptsGrid">
+                <!-- Loading state -->
+                <div class="prompt-card loading" style="grid-column: 1 / -1;">
+                    <div style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <div style="color: var(--text-secondary);">Loading amazing prompts...</div>
                     </div>
                 </div>
             </div>
             
-            <div class="cart-footer" id="cartFooter" style="display: none;">
-                <div class="command-preview">
-                    <div class="command-preview-header">
-                        <span>Generated Command:</span>
-                    </div>
-                    <div class="cart-command-container">
-                        <div class="command-code" id="generatedCommand">
-                            npx claude-code-templates@latest
-                        </div>
-                        <button class="cart-copy-overlay-btn" onclick="copyCartCommand()" title="Copy command">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                            </svg>
-                            Copy
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="cart-instructions">
-                    <div class="instructions-header">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-                        </svg>
-                        <strong>Instructions</strong>
-                    </div>
-                    <p>Navigate to your project root and run the generated command. All selected components will be installed automatically.</p>
-                </div>
-                
-                <div class="cart-actions">
-                    <button class="copy-command-btn" onclick="copyCartCommand()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                        </svg>
-                        Copy Command
-                    </button>
-                    <div class="share-dropdown" id="shareDropdown">
-                        <button class="share-stack-btn" onclick="toggleShareDropdown()">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.6 20.92,19A2.84,2.84 0 0,0 18,16.08Z"/>
-                            </svg>
-                            Share Stack
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="dropdown-arrow">
-                                <path d="M7,10L12,15L17,10H7Z"/>
-                            </svg>
-                        </button>
-                        <div class="share-options" id="shareOptions">
-                            <button class="share-option-btn" onclick="shareOnTwitter()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                                </svg>
-                                Share on X
-                            </button>
-                            <button class="share-option-btn" onclick="shareOnThreads()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 1.623-.02 3.094-.37 4.37-1.04.558-.29 1.029-.63 1.414-1.017.33-.33.602-.69.82-1.084.218-.395.381-.84.488-1.336.107-.495.16-1.044.16-1.644 0-.595-.053-1.144-.16-1.644-.107-.496-.27-.941-.488-1.336a3.79 3.79 0 00-.82-1.084 3.790 3.790 0 00-1.414-1.017c-1.276-.67-2.747-1.02-4.37-1.04h-.007c-1.623.02-3.094.37-4.37 1.04-.558.29-1.029.63-1.414 1.017-.33.33-.602.69-.82 1.084-.218.395-.381.84-.488 1.336-.107.5-.16 1.049-.16 1.644 0 .595.053 1.144.16 1.644.107.496.27.941.488 1.336.218.395.49.754.82 1.084.385.387.856.727 1.414 1.017 1.276.67 2.747 1.02 4.37 1.04z"/>
-                                </svg>
-                                Share on Threads
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <!-- Empty State -->
+            <div style="text-align: center; padding: var(--space-20) var(--space-8); color: var(--text-secondary); display: none;" id="emptyState">
+                <div style="font-size: 4rem; margin-bottom: var(--space-4); opacity: 0.5;">🔍</div>
+                <h3 style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-2); color: var(--text-primary);">No prompts found</h3>
+                <p style="max-width: 400px; margin: 0 auto;">
+                    Try adjusting your search terms or browse a different category.
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Cart Floating Button -->
-    <div id="cartFloatingBtn" class="cart-floating-btn" onclick="openCart()" style="display: none;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M7 18c-1.1 0-2 0.9-2 2s0.9 2 2 2 2-0.9 2-2-0.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-0.16 0.27-0.25 0.58-0.25 0.96 0 1.1 0.9 2 2 2h12v-2H7.42c-0.14 0-0.25-0.11-0.25-0.25l0.03-0.12L8.1 13h7.45c0.75 0 1.41-0.41 1.75-1.03L21.7 4H5.21l-0.94-2H1zM17 18c-1.1 0-2 0.9-2 2s0.9 2 2 2 2-0.9 2-2-0.9-2-2-2z"/>
-        </svg>
-        <span class="cart-badge" id="cartBadge">0</span>
-    </div>
+    <!-- Toast Notifications Container -->
+    <div id="toastContainer"></div>
 
-    <link rel="stylesheet" href="css/workflows-modal.css">
-    <link rel="stylesheet" href="css/stack-page.css">
-    <!-- Legacy scripts removed to prevent UI overrides and redundant features -->
-    <script src="js/prompt-manager.js"></script>
-    <script src="js/prompt-form.js"></script>
-    <script src="js/favorites-manager.js"></script>
-    <script src="js/error-handler.js"></script>
-    <script src="js/auth-manager.js"></script>
-    <script src="js/advanced-search.js"></script>
-    <script src="js/analytics.js"></script>
-    <script src="js/performance.js"></script>
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Enhanced Prompt Management System with Working Search
+        class EnhancedPromptApp {
+            constructor() {
+                this.prompts = [];
+                this.filteredPrompts = [];
+                this.filters = {
+                    category: 'all',
+                    search: '',
+                    sort: 'newest'
+                };
+                this.favorites = this.loadFavorites();
+                this.isLoading = false;
+                
+                this.init();
+            }
+            
+            async init() {
+                this.setupEventHandlers();
+                this.setupScrollEffects();
+                await this.loadPrompts();
+                this.updateStats();
+            }
+            
+            setupEventHandlers() {
+                // Enhanced search input with debouncing
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    searchInput.addEventListener('input', this.debounce((e) => {
+                        this.filters.search = e.target.value.trim().toLowerCase();
+                        this.applyFilters();
+                    }, 300));
+                }
+
+                // Filter chips with enhanced animations
+                const filterChips = document.querySelectorAll('.filter-chip');
+                filterChips.forEach(chip => {
+                    chip.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const category = chip.dataset.category;
+                        this.setCategory(category);
+                    });
+                });
+
+                // Sort functionality
+                const sortSelect = document.getElementById('sortSelect');
+                if (sortSelect) {
+                    sortSelect.addEventListener('change', (e) => {
+                        this.filters.sort = e.target.value;
+                        this.applyFilters();
+                    });
+                }
+
+                // Global click handlers for prompt actions
+                document.addEventListener('click', this.handleGlobalClick.bind(this));
+
+                // Submit prompt form
+                this.setupSubmitForm();
+            }
+            
+            setupScrollEffects() {
+                const header = document.getElementById('header');
+                let lastScrollY = window.scrollY;
+                
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    
+                    if (currentScrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    
+                    lastScrollY = currentScrollY;
+                });
+            }
+
+            async loadPrompts() {
+                if (this.isLoading) return;
+                
+                this.isLoading = true;
+                this.showLoading(true);
+
+                try {
+                    // Try to load from API first, fallback to local data
+                    let data;
+                    try {
+                        const response = await fetch('/api/prompts?limit=100');
+                        if (response.ok) {
+                            data = await response.json();
+                            this.prompts = data.prompts || [];
+                        } else {
+                            throw new Error('API not available');
+                        }
+                    } catch (apiError) {
+                        console.log('API not available, loading demo data');
+                        // Load demo data for development
+                        this.prompts = this.getDemoPrompts();
+                    }
+                    
+                    this.applyFilters();
+                    this.updateStats();
+                    
+                } catch (error) {
+                    console.error('Failed to load prompts:', error);
+                    this.showError('Failed to load prompts. Please try again.');
+                } finally {
+                    this.isLoading = false;
+                    this.showLoading(false);
+                }
+            }
+            
+            getDemoPrompts() {
+                return [
+                    {
+                        id: 'demo-1',
+                        title: 'AI Code Review Assistant',
+                        description: 'Get comprehensive code reviews with AI assistance covering quality, performance, security, and best practices.',
+                        content: 'You are an expert code reviewer. Please review the following code for:\n\n1. **Code Quality**: Check for clean, readable, and maintainable code\n2. **Performance**: Identify potential performance bottlenecks\n3. **Security**: Look for security vulnerabilities\n4. **Best Practices**: Ensure adherence to language-specific best practices\n\nFor each issue found, provide:\n- Severity level (Critical, High, Medium, Low)\n- Specific line numbers or sections\n- Clear explanation of the issue\n- Suggested fix or improvement',
+                        category: 'development',
+                        tags: ['code-review', 'quality', 'security'],
+                        difficulty_level: 'intermediate',
+                        is_featured: true,
+                        average_rating: 4.8,
+                        total_ratings: 245,
+                        total_likes: 189,
+                        created_at: '2024-01-15T10:30:00Z'
+                    },
+                    {
+                        id: 'demo-2',
+                        title: 'Creative Writing Brainstorm',
+                        description: 'Generate creative story ideas, character development, and plot twists for your next writing project.',
+                        content: 'You are a creative writing mentor with years of experience in storytelling. Help me brainstorm ideas for my story by:\n\n1. **Story Concept**: Generate unique and engaging story premises\n2. **Character Development**: Create compelling characters with depth and motivation\n3. **Plot Structure**: Suggest interesting plot points and twists\n4. **Setting & Worldbuilding**: Develop rich, immersive environments\n5. **Dialogue**: Craft authentic character voices\n\nProvide specific, actionable suggestions that spark creativity.',
+                        category: 'creative',
+                        tags: ['writing', 'storytelling', 'brainstorm'],
+                        difficulty_level: 'beginner',
+                        is_featured: false,
+                        average_rating: 4.6,
+                        total_ratings: 178,
+                        total_likes: 156,
+                        created_at: '2024-01-14T15:45:00Z'
+                    },
+                    {
+                        id: 'demo-3',
+                        title: 'Business Strategy Analyzer',
+                        description: 'Analyze business strategies, market opportunities, and competitive landscapes with expert insights.',
+                        content: 'You are a strategic business consultant with expertise in market analysis and competitive intelligence. Analyze the following business scenario:\n\n**Analysis Framework:**\n1. **Market Opportunity**: Size, growth potential, and trends\n2. **Competitive Landscape**: Key players, strengths, weaknesses\n3. **SWOT Analysis**: Strengths, Weaknesses, Opportunities, Threats\n4. **Strategic Recommendations**: Actionable next steps\n5. **Risk Assessment**: Potential challenges and mitigation strategies\n\nProvide data-driven insights and practical recommendations.',
+                        category: 'business',
+                        tags: ['strategy', 'analysis', 'consulting'],
+                        difficulty_level: 'advanced',
+                        is_featured: true,
+                        average_rating: 4.9,
+                        total_ratings: 312,
+                        total_likes: 278,
+                        created_at: '2024-01-13T09:20:00Z'
+                    },
+                    {
+                        id: 'demo-4',
+                        title: 'Learning Plan Creator',
+                        description: 'Create personalized learning plans for any topic with structured milestones and resources.',
+                        content: 'You are an educational expert and learning specialist. Create a comprehensive learning plan for:\n\n**Learning Plan Structure:**\n1. **Prerequisites**: What knowledge is needed to start\n2. **Learning Objectives**: Clear, measurable goals\n3. **Study Schedule**: Weekly breakdown with time estimates\n4. **Resources**: Books, courses, videos, practice materials\n5. **Milestones**: Checkpoints to measure progress\n6. **Assessment**: How to evaluate understanding\n\nMake the plan practical, achievable, and engaging.',
+                        category: 'education',
+                        tags: ['learning', 'education', 'planning'],
+                        difficulty_level: 'intermediate',
+                        is_featured: false,
+                        average_rating: 4.7,
+                        total_ratings: 203,
+                        total_likes: 167,
+                        created_at: '2024-01-12T14:10:00Z'
+                    },
+                    {
+                        id: 'demo-5',
+                        title: 'Research Paper Assistant',
+                        description: 'Help structure, outline, and improve academic research papers with proper methodology.',
+                        content: 'You are an academic research specialist with expertise in scholarly writing and methodology. Help me with my research paper:\n\n**Research Assistance Areas:**\n1. **Topic Refinement**: Narrow down and focus the research question\n2. **Literature Review**: Identify key sources and themes\n3. **Methodology**: Choose appropriate research methods\n4. **Structure**: Organize sections and arguments logically\n5. **Citations**: Ensure proper academic formatting\n6. **Analysis**: Strengthen arguments and evidence\n\nProvide specific, actionable feedback to improve the paper\'s quality.',
+                        category: 'research',
+                        tags: ['academic', 'research', 'writing'],
+                        difficulty_level: 'advanced',
+                        is_featured: false,
+                        average_rating: 4.5,
+                        total_ratings: 156,
+                        total_likes: 134,
+                        created_at: '2024-01-11T11:30:00Z'
+                    },
+                    {
+                        id: 'demo-6',
+                        title: 'Technical Documentation Writer',
+                        description: 'Create clear, comprehensive technical documentation for APIs, software, and systems.',
+                        content: 'You are a technical writing expert specializing in developer documentation. Help me create comprehensive technical documentation:\n\n**Documentation Structure:**\n1. **Overview**: Clear introduction and purpose\n2. **Getting Started**: Installation and setup instructions\n3. **API Reference**: Endpoints, parameters, examples\n4. **Code Examples**: Working code snippets in multiple languages\n5. **Troubleshooting**: Common issues and solutions\n6. **Best Practices**: Recommended usage patterns\n\nEnsure the documentation is clear, accurate, and developer-friendly.',
+                        category: 'technical',
+                        tags: ['documentation', 'api', 'technical-writing'],
+                        difficulty_level: 'intermediate',
+                        is_featured: false,
+                        average_rating: 4.4,
+                        total_ratings: 189,
+                        total_likes: 145,
+                        created_at: '2024-01-10T16:20:00Z'
+                    }
+                ];
+            }
+
+            setCategory(category) {
+                // Update active filter chip with animation
+                document.querySelectorAll('.filter-chip').forEach(chip => {
+                    chip.classList.toggle('active', chip.dataset.category === category);
+                });
+
+                this.filters.category = category;
+                this.applyFilters();
+            }
+
+            applyFilters() {
+                this.filteredPrompts = this.prompts.filter(prompt => {
+                    // Category filter
+                    if (this.filters.category !== 'all' && prompt.category !== this.filters.category) {
+                        return false;
+                    }
+                    
+                    // Search filter
+                    if (this.filters.search) {
+                        const searchText = `${prompt.title} ${prompt.description} ${prompt.content}`.toLowerCase();
+                        if (!searchText.includes(this.filters.search)) {
+                            return false;
+                        }
+                    }
+                    
+                    return true;
+                });
+
+                this.sortPrompts();
+                this.renderPrompts();
+                this.updateResultsInfo();
+            }
+            
+            sortPrompts() {
+                this.filteredPrompts.sort((a, b) => {
+                    switch (this.filters.sort) {
+                        case 'popular':
+                            return (b.total_likes || 0) - (a.total_likes || 0);
+                        case 'rating':
+                            return (b.average_rating || 0) - (a.average_rating || 0);
+                        case 'alphabetical':
+                            return a.title.localeCompare(b.title);
+                        default: // newest
+                            return new Date(b.created_at || 0) - new Date(a.created_at || 0);
+                    }
+                });
+            }
+
+            renderPrompts() {
+                const grid = document.getElementById('promptsGrid');
+                const emptyState = document.getElementById('emptyState');
+
+                if (!grid) return;
+
+                if (this.filteredPrompts.length === 0 && !this.isLoading) {
+                    grid.style.display = 'none';
+                    if (emptyState) emptyState.style.display = 'block';
+                    return;
+                }
+
+                grid.style.display = 'grid';
+                if (emptyState) emptyState.style.display = 'none';
+
+                grid.innerHTML = this.filteredPrompts.map(prompt => this.createPromptCard(prompt)).join('');
+            }
+
+            createPromptCard(prompt) {
+                const isFavorited = this.favorites.includes(prompt.id);
+                const stars = this.generateStars(prompt.average_rating || 0);
+                
+                return `
+                    <div class="prompt-card" data-prompt-id="${prompt.id}">
+                        <div class="prompt-card-header">
+                            <div class="prompt-meta">
+                                <span class="badge badge-primary">${this.escapeHtml(prompt.category)}</span>
+                                ${prompt.is_featured ? '<span class="badge badge-warning">Featured</span>' : ''}
+                                ${prompt.difficulty_level ? `<span class="badge badge-secondary">${prompt.difficulty_level}</span>` : ''}
+                            </div>
+                            <div class="rating interactive">
+                                <div class="stars">${stars}</div>
+                                <span class="rating-count">(${prompt.total_ratings || 0})</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="prompt-title">${this.escapeHtml(prompt.title)}</h3>
+                        <p class="prompt-description">${this.escapeHtml(prompt.description || '')}</p>
+                        
+                        ${prompt.tags && prompt.tags.length > 0 ? `
+                            <div class="prompt-tags">
+                                ${prompt.tags.slice(0, 3).map(tag => `<span class="tag">${this.escapeHtml(tag)}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        <div class="prompt-actions">
+                            <button class="copy-button" data-action="copy">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                </svg>
+                                Copy Prompt
+                            </button>
+                            
+                            <div class="action-buttons">
+                                <button class="action-btn favorite-btn ${isFavorited ? 'favorited' : ''}" 
+                                        data-action="favorite" 
+                                        title="${isFavorited ? 'Remove from favorites' : 'Add to favorites'}">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    </svg>
+                                </button>
+                                
+                                <button class="action-btn share-btn" data-action="share" title="Share prompt">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            generateStars(rating) {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                
+                let stars = '';
+                
+                // Full stars
+                for (let i = 0; i < fullStars; i++) {
+                    stars += '<span class="star filled">★</span>';
+                }
+                
+                // Half star
+                if (hasHalfStar) {
+                    stars += '<span class="star filled">★</span>';
+                }
+                
+                // Empty stars
+                for (let i = 0; i < emptyStars; i++) {
+                    stars += '<span class="star">★</span>';
+                }
+                
+                return stars;
+            }
+
+            async handleGlobalClick(e) {
+                const action = e.target.dataset.action || e.target.closest('[data-action]')?.dataset.action;
+                if (!action) return;
+
+                const promptCard = e.target.closest('.prompt-card');
+                if (!promptCard) return;
+
+                const promptId = promptCard.dataset.promptId;
+                
+                switch (action) {
+                    case 'copy':
+                        await this.copyPrompt(promptId);
+                        break;
+                    case 'favorite':
+                        this.toggleFavorite(promptId);
+                        break;
+                    case 'share':
+                        this.sharePrompt(promptId);
+                        break;
+                }
+            }
+
+            async copyPrompt(promptId) {
+                const prompt = this.prompts.find(p => p.id === promptId);
+                if (!prompt) return;
+
+                try {
+                    await navigator.clipboard.writeText(prompt.content);
+                    
+                    // Enhanced visual feedback
+                    const button = document.querySelector(`[data-prompt-id="${promptId}"] .copy-button`);
+                    if (button) {
+                        const originalHTML = button.innerHTML;
+                        
+                        button.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                            Copied!
+                        `;
+                        button.classList.add('copied');
+                        
+                        setTimeout(() => {
+                            button.innerHTML = originalHTML;
+                            button.classList.remove('copied');
+                        }, 2000);
+                    }
+                    
+                    this.showToast('Prompt copied to clipboard!', 'success');
+                    
+                } catch (error) {
+                    console.error('Failed to copy prompt:', error);
+                    this.showToast('Failed to copy prompt', 'error');
+                }
+            }
+
+            toggleFavorite(promptId) {
+                const index = this.favorites.indexOf(promptId);
+                
+                if (index > -1) {
+                    this.favorites.splice(index, 1);
+                } else {
+                    this.favorites.push(promptId);
+                }
+                
+                this.saveFavorites();
+                
+                // Update UI with animation
+                const button = document.querySelector(`[data-prompt-id="${promptId}"] .favorite-btn`);
+                if (button) {
+                    button.classList.toggle('favorited');
+                    button.title = index > -1 ? 'Add to favorites' : 'Remove from favorites';
+                }
+                
+                const message = index > -1 ? 'Removed from favorites' : 'Added to favorites';
+                this.showToast(message, 'success');
+            }
+
+            sharePrompt(promptId) {
+                const prompt = this.prompts.find(p => p.id === promptId);
+                if (!prompt) return;
+
+                if (navigator.share) {
+                    navigator.share({
+                        title: prompt.title,
+                        text: prompt.description,
+                        url: `${window.location.origin}/?prompt=${promptId}`
+                    }).catch(console.error);
+                } else {
+                    // Fallback: copy URL to clipboard
+                    const url = `${window.location.origin}/?prompt=${promptId}`;
+                    navigator.clipboard.writeText(url).then(() => {
+                        this.showToast('Prompt URL copied to clipboard!', 'success');
+                    }).catch(() => {
+                        this.showToast('Failed to copy URL', 'error');
+                    });
+                }
+            }
+
+            setupSubmitForm() {
+                // Create submit prompt modal (simplified for demo)
+                document.querySelectorAll('a[href="#submit"], button[onclick*="submit"]').forEach(el => {
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showToast('Submit feature coming soon! For now, enjoy browsing our curated prompts.', 'info');
+                    });
+                });
+            }
+
+            updateStats() {
+                const promptCount = document.getElementById('promptCount');
+                if (promptCount && this.prompts.length > 0) {
+                    promptCount.textContent = `${this.prompts.length.toLocaleString()}+`;
+                }
+            }
+
+            updateResultsInfo() {
+                const resultsInfo = document.getElementById('resultsInfo');
+                const resultsCount = document.getElementById('resultsCount');
+                
+                if (!resultsInfo || !resultsCount) return;
+
+                if (this.filters.search || this.filters.category !== 'all') {
+                    resultsInfo.style.display = 'flex';
+                    resultsCount.textContent = this.filteredPrompts.length;
+                } else {
+                    resultsInfo.style.display = 'none';
+                }
+            }
+
+            showLoading(show) {
+                const grid = document.getElementById('promptsGrid');
+                if (!grid) return;
+
+                if (show) {
+                    grid.innerHTML = `
+                        <div class="prompt-card loading" style="grid-column: 1 / -1;">
+                            <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+                                <div style="text-align: center;">
+                                    <div style="margin-bottom: 1rem; font-size: 2rem;">⚡</div>
+                                    Loading amazing prompts...
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            showError(message) {
+                const grid = document.getElementById('promptsGrid');
+                if (grid) {
+                    grid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-secondary);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
+                            <div>${message}</div>
+                            <button onclick="window.promptApp.loadPrompts()" style="margin-top: 1rem;" class="btn btn-primary">
+                                Try Again
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+
+            showToast(message, type = 'info') {
+                const container = document.getElementById('toastContainer') || this.createToastContainer();
+                
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                
+                const icon = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+                
+                toast.innerHTML = `
+                    <div class="toast-icon">${icon}</div>
+                    <div class="toast-content">
+                        <div class="toast-title">${message}</div>
+                    </div>
+                    <button class="toast-close">×</button>
+                `;
+                
+                container.appendChild(toast);
+                
+                // Show toast with animation
+                requestAnimationFrame(() => toast.classList.add('show'));
+                
+                // Auto-hide
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                }, 4000);
+                
+                // Close button
+                toast.querySelector('.toast-close').addEventListener('click', () => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                });
+            }
+
+            createToastContainer() {
+                const container = document.createElement('div');
+                container.id = 'toastContainer';
+                document.body.appendChild(container);
+                return container;
+            }
+
+            loadFavorites() {
+                try {
+                    return JSON.parse(localStorage.getItem('prompthero_favorites') || '[]');
+                } catch {
+                    return [];
+                }
+            }
+
+            saveFavorites() {
+                try {
+                    localStorage.setItem('prompthero_favorites', JSON.stringify(this.favorites));
+                } catch (error) {
+                    console.error('Failed to save favorites:', error);
+                }
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text || '';
+                return div.innerHTML;
+            }
+
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        }
+
+        // Utility functions
+        function scrollToSearch() {
+            const element = document.getElementById('browse');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize the enhanced application
+        document.addEventListener('DOMContentLoaded', () => {
+            window.promptApp = new EnhancedPromptApp();
+        });
+    </script>
 </body>
 </html>
