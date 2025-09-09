@@ -18,17 +18,17 @@
   --gray-800: #262626;
   --gray-900: #171717;
   
-  /* Vibrant Brand Colors */
-  --primary: #6366f1;        /* Indigo - Modern and vibrant */
-  --primary-light: #818cf8;
-  --primary-dark: #4f46e5;
-  --primary-50: #eef2ff;
-  --primary-100: #e0e7ff;
+  /* Beautiful Brand Colors - Warm and Modern */
+  --primary: #10b981;        /* Emerald - Fresh and energetic */
+  --primary-light: #34d399;
+  --primary-dark: #059669;
+  --primary-50: #ecfdf5;
+  --primary-100: #d1fae5;
   
   /* Accent Colors */
-  --accent: #f59e0b;         /* Amber - Warm and friendly */
-  --accent-light: #fbbf24;
-  --accent-dark: #d97706;
+  --accent: #f97316;         /* Orange - Vibrant and warm */
+  --accent-light: #fb923c;
+  --accent-dark: #ea580c;
   
   /* Success/Error */
   --success: #10b981;        /* Emerald */
@@ -436,9 +436,9 @@ a {
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  background: linear-gradient(135deg, var(--primary-dark), var(--accent));
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), var(--shadow-colored);
+  box-shadow: var(--shadow-lg), 0 10px 25px -5px rgba(16, 185, 129, 0.2);
 }
 
 .btn-secondary {
@@ -480,9 +480,10 @@ a {
 /* Hero Section with Enhanced Styling */
 .hero {
   background: linear-gradient(135deg, 
-    var(--bg-primary) 0%, 
-    var(--primary-50) 50%, 
-    var(--bg-secondary) 100%);
+    #fafafa 0%, 
+    #f0fdf4 30%,
+    #ecfdf5 70%, 
+    #f9fafb 100%);
   padding: var(--space-24) 0 var(--space-20);
   text-align: center;
   position: relative;
@@ -496,7 +497,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
   animation: drift 20s ease-in-out infinite;
 }
 
@@ -515,7 +516,7 @@ a {
   font-size: clamp(var(--font-size-4xl), 8vw, var(--font-size-6xl));
   font-weight: var(--font-weight-extrabold);
   margin-bottom: var(--space-6);
-  background: linear-gradient(135deg, var(--text-primary), var(--primary));
+  background: linear-gradient(135deg, #1f2937, var(--primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -568,7 +569,7 @@ a {
   font-weight: var(--font-weight-extrabold);
   color: var(--primary);
   margin-bottom: var(--space-2);
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -886,7 +887,7 @@ a {
 .badge-primary {
   background: linear-gradient(135deg, var(--primary-100), var(--primary-50));
   color: var(--primary-dark);
-  border-color: var(--primary-200);
+  border-color: var(--primary);
 }
 
 .badge-success {
@@ -895,8 +896,9 @@ a {
 }
 
 .badge-warning {
-  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
   color: var(--white);
+  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
 }
 
 .badge-secondary {
@@ -918,7 +920,7 @@ a {
 
 .copy-button {
   flex: 1;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: var(--text-inverse);
   border: none;
   padding: var(--space-3) var(--space-6);
@@ -950,9 +952,9 @@ a {
 }
 
 .copy-button:hover {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  background: linear-gradient(135deg, var(--primary-dark), var(--accent-dark));
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), var(--shadow-colored);
+  box-shadow: var(--shadow-lg), 0 10px 25px -5px rgba(16, 185, 129, 0.3);
 }
 
 .copy-button:active {
