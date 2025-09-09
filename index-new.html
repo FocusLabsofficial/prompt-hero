@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Hero - Discover and Share the Best AI Prompts</title>
+    <meta name="description" content="The ultimate AI prompt repository. Discover, copy, and share high-quality prompts for ChatGPT, Claude, and other AI tools. Transform your AI workflow with community-curated prompts.">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Modern Styles -->
+    <link rel="stylesheet" href="css/modern-styles.css">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prompthero.com/">
+    <meta property="og:title" content="Prompt Hero - Discover and Share the Best AI Prompts">
+    <meta property="og:description" content="The ultimate AI prompt repository. Discover, copy, and share high-quality prompts for ChatGPT, Claude, and other AI tools.">
+    <meta property="og:image" content="/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- SEO -->
+    <meta name="keywords" content="AI prompts, ChatGPT prompts, Claude prompts, prompt engineering, AI tools, prompt library, AI templates">
+    <meta name="author" content="Prompt Hero">
+    <link rel="canonical" href="https://prompthero.com/">
+    
+    <style>
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: var(--space-20) 0 var(--space-16);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4f4f5' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: var(--font-size-5xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-6);
+            background: linear-gradient(135deg, var(--text-primary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: var(--line-height-tight);
+        }
+        
+        .hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: var(--line-height-relaxed);
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-12);
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-8);
+            margin-top: var(--space-16);
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        /* Search Section */
+        .search-section {
+            padding: var(--space-16) 0;
+            background: var(--bg-primary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .section-title h2 {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-4);
+        }
+        
+        .section-title p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Filter Chips */
+        .filter-section {
+            margin: var(--space-8) 0;
+        }
+        
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            justify-content: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-full);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .filter-chip:hover,
+        .filter-chip.active {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+        }
+        
+        .filter-chip-icon {
+            font-size: var(--font-size-base);
+        }
+        
+        /* Prompt Grid */
+        .prompts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+        
+        /* Prompt Card */
+        .prompt-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            transition: all var(--transition-normal);
+            position: relative;
+            height: fit-content;
+        }
+        
+        .prompt-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        
+        .prompt-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-4);
+            gap: var(--space-3);
+        }
+        
+        .prompt-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-3);
+        }
+        
+        .prompt-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+            line-height: var(--line-height-tight);
+        }
+        
+        .prompt-description {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            line-height: var(--line-height-normal);
+            margin-bottom: var(--space-4);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .prompt-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-3);
+            margin-top: auto;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-primary);
+        }
+        
+        .copy-button {
+            flex: 1;
+            background: var(--primary);
+            color: var(--text-inverse);
+            border: none;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+        }
+        
+        .copy-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        
+        .copy-button.copied {
+            background: var(--success);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .action-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid var(--border-primary);
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .action-btn.favorited {
+            color: var(--error);
+            border-color: var(--error);
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        /* Rating Stars */
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+        
+        .stars {
+            display: flex;
+            gap: 1px;
+        }
+        
+        .star {
+            color: var(--gray-300);
+            font-size: var(--font-size-sm);
+        }
+        
+        .star.filled {
+            color: var(--accent);
+        }
+        
+        .rating-count {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            margin-left: var(--space-1);
+        }
+        
+        /* Loading States */
+        .prompt-card.loading {
+            background: var(--bg-secondary);
+            border-color: transparent;
+            pointer-events: none;
+        }
+        
+        .prompt-card.loading * {
+            background: var(--bg-tertiary);
+            color: transparent;
+            border-radius: var(--radius-sm);
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: var(--space-20) var(--space-8);
+            color: var(--text-secondary);
+        }
+        
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-4);
+            opacity: 0.5;
+        }
+        
+        .empty-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+        }
+        
+        .empty-description {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: var(--font-size-4xl);
+            }
+            
+            .hero-subtitle {
+                font-size: var(--font-size-lg);
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats {
+                gap: var(--space-6);
+            }
+            
+            .prompts-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+            
+            .filter-chips {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: var(--space-2);
+            }
+            
+            .prompt-actions {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+            
+            .action-buttons {
+                align-self: stretch;
+                justify-content: space-around;
+            }
+        }
+        
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            top: var(--space-4);
+            right: var(--space-4);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            max-width: 400px;
+            transform: translateX(100%);
+            transition: transform var(--transition-normal);
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .toast-content {
+            flex: 1;
+        }
+        
+        .toast-title {
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-1);
+        }
+        
+        .toast-message {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            padding: var(--space-1);
+        }
+        
+        .toast.success {
+            border-color: var(--success);
+        }
+        
+        .toast.success .toast-icon {
+            color: var(--success);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <div class="logo-icon">P</div>
+                    <span>Prompt Hero</span>
+                </a>
+                
+                <nav class="nav">
+                    <a href="#browse" class="nav-link active">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Browse
+                    </a>
+                    <a href="#trending" class="nav-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                        </svg>
+                        Trending
+                    </a>
+                    <a href="#submit" class="btn btn-primary btn-sm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        Submit Prompt
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover the Best AI Prompts</h1>
+                <p class="hero-subtitle">
+                    Transform your AI workflow with curated, high-quality prompts for ChatGPT, Claude, and more. 
+                    Copy, share, and discover prompts that get results.
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSearch()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27A6.518 6.518 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                        Explore Prompts
+                    </button>
+                    <a href="#submit" class="btn btn-secondary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                        </svg>
+                        Submit Your Prompt
+                    </a>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="promptCount">1,200+</span>
+                        <span class="stat-label">Quality Prompts</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Copies Made</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2.5K+</span>
+                        <span class="stat-label">Community Members</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Browse Section -->
+    <section class="search-section" id="browse">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find the Perfect Prompt</h2>
+                <p>Search through our curated collection or browse by category</p>
+            </div>
+            
+            <!-- Search Input -->
+            <div class="search-container">
+                <div style="position: relative;">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27A6.518 6.518 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                    <input 
+                        type="text" 
+                        class="input search-input" 
+                        placeholder="Search prompts..." 
+                        id="searchInput"
+                        autocomplete="off"
+                    >
+                </div>
+            </div>
+            
+            <!-- Filter Chips -->
+            <div class="filter-section">
+                <div class="filter-chips" id="filterChips">
+                    <button class="filter-chip active" data-category="all">
+                        <span class="filter-chip-icon">🌟</span>
+                        All Prompts
+                    </button>
+                    <button class="filter-chip" data-category="development">
+                        <span class="filter-chip-icon">💻</span>
+                        Development
+                    </button>
+                    <button class="filter-chip" data-category="creative">
+                        <span class="filter-chip-icon">🎨</span>
+                        Creative
+                    </button>
+                    <button class="filter-chip" data-category="business">
+                        <span class="filter-chip-icon">💼</span>
+                        Business
+                    </button>
+                    <button class="filter-chip" data-category="education">
+                        <span class="filter-chip-icon">📚</span>
+                        Education
+                    </button>
+                    <button class="filter-chip" data-category="research">
+                        <span class="filter-chip-icon">🔬</span>
+                        Research
+                    </button>
+                    <button class="filter-chip" data-category="technical">
+                        <span class="filter-chip-icon">⚙️</span>
+                        Technical
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Results Info -->
+            <div class="flex justify-between items-center mb-6" id="resultsInfo" style="display: none;">
+                <p class="text-secondary">
+                    <span id="resultsCount">0</span> prompts found
+                </p>
+                <select class="input" style="width: auto;" id="sortSelect">
+                    <option value="newest">Newest First</option>
+                    <option value="popular">Most Popular</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="alphabetical">A-Z</option>
+                </select>
+            </div>
+            
+            <!-- Prompts Grid -->
+            <div class="prompts-grid" id="promptsGrid">
+                <!-- Loading state -->
+                <div class="prompt-card loading" style="grid-column: 1 / -1;">
+                    <div style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <div style="color: var(--text-secondary);">Loading amazing prompts...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">🔍</div>
+                <h3 class="empty-title">No prompts found</h3>
+                <p class="empty-description">
+                    Try adjusting your search terms or browse a different category.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer"></div>
+
+    <!-- Modern JavaScript -->
+    <script src="js/modern-app.js"></script>
+</body>
+</html>
