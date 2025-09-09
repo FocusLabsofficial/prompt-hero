@@ -3,7 +3,20 @@
   "public": true,
   "buildCommand": "echo 'No build needed'",
   "outputDirectory": "docs",
+  "functions": {
+    "api/prompts.js": {
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index-new.html"
+    },
+    {
+      "source": "/api/prompts",
+      "destination": "/api/prompts.js"
+    },
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
